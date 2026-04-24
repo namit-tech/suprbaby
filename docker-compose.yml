@@ -1,0 +1,7 @@
+services:
+  suprbaby-frontend:
+    build: .
+    container_name: suprbaby-frontend
+    ports:
+      - "3000:80"
+    restart: always
