@@ -15,6 +15,7 @@ import {
   HiUser,
 } from 'react-icons/hi';
 import { useCart } from '../context/CartContext';
+import { orderService } from '../services/api';
 
 const STEPS = [
   { id: 1, label: 'Order Review', icon: HiShoppingBag },
@@ -408,12 +409,37 @@ const PaymentStep = ({ onBack, address }) => {
   const [orderDate] = useState(() => new Date());
   const navigate = useNavigate();
 
-  const handleConfirmPayment = () => {
+  const handleConfirmPayment = async () => {
     setIsProcessing(true);
-    setTimeout(() => {
+    try {
+      const orderData = {
+        orderId,
+        customer: {
+          fullName: address.fullName,
+          email: address.email,
+          phone: address.phone,
+          address: address.address
+        },
+        items: items.map(item => ({
+          id: item.id,
+          name: item.name,
+          quantity: item.quantity,
+          price: item.price,
+          image: item.image
+        })),
+        subtotal,
+        shipping,
+        total
+      };
+
+      await orderService.create(orderData);
       setIsProcessing(false);
       setOrderPlaced(true);
-    }, 2000);
+    } catch (error) {
+      console.error('Order submission failed:', error);
+      setIsProcessing(false);
+      alert('Something went wrong while placing your order. Please try again.');
+    }
   };
 
   const formattedDate = orderDate.toLocaleDateString('en-IN', {

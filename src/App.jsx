@@ -11,11 +11,13 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Instagram from './pages/Instagram';
 import Faq from './pages/Faq';
-import Checkout from './pages/Checkout';
+import TermsOfService from './components/TermsOfService';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 import ShippingPolicy from './components/ShippingPolicy';
 import RefundPolicy from './components/RefundPolicy';
 import PrivacyPolicy from './components/Privacypolicy';
-import TermsOfService from './components/TermsOfService';
+import Checkout from './pages/Checkout';
 
 // Scroll to top on page change
 const ScrollToTop = () => {
@@ -40,15 +42,20 @@ const PageTransition = ({ children }) => (
 
 function App() {
   const location = useLocation();
+  const isAdminPage = location.pathname.startsWith('/admin');
 
   return (
     <div className="font-primary">
       <ScrollToTop />
-      <Navbar />
-      <CartDrawer />
+      {!isAdminPage && <Navbar />}
+      {!isAdminPage && <CartDrawer />}
       <main>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+
             <Route
               path="/"
               element={
@@ -148,7 +155,7 @@ function App() {
           </Routes>
         </AnimatePresence>
       </main>
-      <Footer />
+      {!isAdminPage && <Footer />}
     </div>
   );
 }
