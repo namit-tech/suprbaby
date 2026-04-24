@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { HiArrowRight, HiStar, HiSparkles } from 'react-icons/hi';
-import { FaCannabis } from 'react-icons/fa';
+import { FaCannabis, FaHeart } from 'react-icons/fa';
 import { FaFire, FaInfinity } from 'react-icons/fa6';
 import { TbCut, TbNumber0, TbZzz } from 'react-icons/tb';
 import ScrollReveal from '../components/ScrollReveal';
@@ -9,6 +9,7 @@ import ProductCard from '../components/ProductCard';
 import products from '../data/products';
 import creamComboImg from '../../public/images/weloverolling.png';
 import productBoxImg from '../../assets/Untitled design (9).png';
+import logoBgWhite from '../../assets/logobgwhite.png';
 
 const SlowBurnIcon = ({ className }) => (
   <div className={`relative inline-flex items-center justify-center ${className}`}>
@@ -63,11 +64,19 @@ const Home = () => {
     <div>
       {/* ===== HERO SECTION ===== */}
       <section className="bg-primary h-[100svh] w-full flex flex-col justify-center px-5 pt-[14svh] pb-[4svh] sm:pt-24 sm:pb-8 lg:pt-[8vh] relative overflow-hidden">
-
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center flex-1">
+        
+        {/* Background Ghost Watermark (Desktop Only) */}
+        <div className="hidden lg:flex absolute inset-0 items-center justify-center pointer-events-none select-none z-0">
+          <img 
+            src={logoBgWhite} 
+            alt="" 
+            className="w-[80%] max-w-[900px] object-contain opacity-[0.08]"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-end flex-1">
           {/* Text */}
           <div className="flex flex-col h-full lg:text-left">
-            <div className="flex-1 flex flex-col justify-center">
+            <div className="flex-1 flex flex-col justify-end">
             <motion.h1
               initial="hidden"
               animate="visible"
@@ -101,14 +110,43 @@ const Home = () => {
               ))}
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-secondary text-left text-[clamp(0.85rem,2svh,1rem)] sm:text-base md:text-lg lg:text-xl max-w-lg mb-[3.5svh] md:mb-[4vh] leading-snug md:leading-relaxed font-secondary italic tracking-widest opacity-90"
-            >
-              With Love from Spain to India.
-            </motion.p>
+            </div>
+
+            {/* Tagline: Text on Desktop, Circular Badge (Smaller & Shifted Right) on Mobile */}
+            <div className="mb-[2svh] md:mb-[4vh] w-full px-5 lg:px-0">
+              
+              <div className="lg:hidden flex justify-end pl-2 -translate-x-[5%] -translate-y-[5%]">
+                 <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.5, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative flex items-center justify-center w-[100px] h-[100px] sm:w-[190px] sm:h-[190px]"
+                  >
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                      className="w-full h-full"
+                    >
+                      <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-md">
+                        <path
+                          id="mobileBadgePath"
+                          d="M 100, 100 m -82, 0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0"
+                          fill="transparent"
+                        />
+                        <text className="text-[24px] font-bold font-secondary tracking-[0.2em] uppercase fill-secondary/90" dominantBaseline="middle">
+                          <textPath href="#mobileBadgePath" startOffset="0%" textLength="510" lengthAdjust="spacing">
+                             WITH LOVE FROM SPAIN TO INDIA •   
+                          </textPath>
+                        </text>
+                      </svg>
+                    </motion.div>
+                    
+                    {/* Center Icon */}
+                    <div className="absolute text-secondary text-[25%] drop-shadow-sm">
+                      <FaHeart className="w-9 h-9 sm:w-12 sm:h-12" />
+                    </div>
+                  </motion.div>
+              </div>
             </div>
 
             <motion.div
@@ -163,17 +201,16 @@ const Home = () => {
                     d="M 100, 100 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"
                     fill="transparent"
                   />
-                  <text className="text-[15.5px] font-bold font-primary tracking-[0.22em] uppercase fill-secondary/90">
-                    <textPath href="#textPath" startOffset="0%">
-                       SUPRBABY KINGS • SLOW & SMOOTH • 100% NATURAL • 
-                    </textPath>
+                  <text className="text-[18px] font-bold font-secondary tracking-[0.2em] uppercase fill-secondary/90">
+                    <textPath href="#textPath" startOffset="0%" textLength="430" lengthAdjust="spacing">
+                       WITH LOVE FROM SPAIN TO INDIA •                       </textPath>
                   </text>
                 </svg>
               </motion.div>
               
               {/* Center Icon */}
               <div className="absolute text-secondary text-[8vh] xl:text-[10vh] drop-shadow-md">
-                <FaCannabis />
+                <FaHeart />
               </div>
 
             </motion.div>
@@ -188,7 +225,7 @@ const Home = () => {
             initial={{ scale: 1.1 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 3, ease: 'easeOut' }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.05 }}
             src={creamComboImg}
             alt="Suprbaby Forest Vibe"
             className="w-full h-auto object-contain"
@@ -203,7 +240,7 @@ const Home = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.05 }}
             variants={{
               hidden: {},
               visible: {

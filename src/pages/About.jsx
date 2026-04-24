@@ -107,7 +107,7 @@ const About = () => {
             {[
               {
                 title: 'Clean Materials',
-                desc: 'Our papers are made from 100% unbleached European hemp. No chlorine, no dyes, no mysterious additives. What you see is what you get — pure, honest paper.',
+                desc: 'Our papers are made from 100% unbleached plant fibres. No chlorine, no dyes, no mysterious additives. What you see is what you get — pure, honest paper.',
               },
               {
                 title: 'Minimal Packaging',

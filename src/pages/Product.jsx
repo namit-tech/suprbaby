@@ -5,12 +5,14 @@ import { HiArrowLeft, HiOutlineShoppingBag } from 'react-icons/hi';
 import ScrollReveal from '../components/ScrollReveal';
 import products, { categories } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import { useCart } from '../context/CartContext';
 
 const Product = () => {
   const { id } = useParams();
   const product = products.find((p) => p.id === parseInt(id));
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const scrollRef = useRef(null);
+  const { addItem } = useCart();
 
   if (!product) {
     return (
@@ -23,13 +25,8 @@ const Product = () => {
     );
   }
 
-  // Carousel images (Hardcoded as requested)
-  const images = [
-    '/images/descbg.png',
-    '/images/descbg.png',
-    '/images/descbg.png',
-    '/images/descbg.png',
-  ];
+  // Carousel images (Using dynamic images with overlay support)
+  const images = product.images || [];
 
   const handleScroll = () => {
     if (scrollRef.current) {
@@ -75,15 +72,36 @@ const Product = () => {
             onScroll={handleScroll}
             className="relative z-20 w-full h-full flex items-center overflow-x-auto snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing"
           >
-            {images.map((img, index) => (
-              <div key={index} className="min-w-full h-full flex items-center justify-center snap-center">
-                <img 
-                  src={img} 
-                  alt={`${product.name} ${index + 1}`} 
-                  className="w-full h-full object-contain transition-transform duration-1000 ease-out hover:scale-[1.03]"
-                />
-              </div>
-            ))}
+            {images.map((slide, index) => {
+              const bgImg = typeof slide === 'string' ? slide : slide.bg;
+              const overlayImg = typeof slide === 'object' ? slide.overlay : null;
+              
+              return (
+                <div key={index} className="min-w-full h-full flex items-center justify-center snap-center relative group">
+                  {/* Main Background Image */}
+                  <img 
+                    src={bgImg} 
+                    alt={`${product.name} bg ${index + 1}`} 
+                    className="w-full h-full object-contain transition-transform duration-1000 ease-out"
+                  />
+                  
+                  {/* Overlapped Center Image */}
+                  {overlayImg && (
+                    <div className="absolute inset-0 flex items-center justify-center p-4">
+                      <motion.img
+                        initial={{ opacity: 0, scale: (slide.scale || 1) * 0.8, y: 20 }}
+                        whileInView={{ opacity: 1, scale: slide.scale || 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.05 }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                        src={overlayImg} 
+                        alt={`${product.name} overlay ${index + 1}`} 
+                        className={`w-[110%] sm:w-[100%] max-h-[95%] sm:max-h-[90%] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-transform duration-700 group-hover:scale-105 ${slide.extraClasses || ''}`}
+                      />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           {/* CAROUSEL DOTS - Overlapping bottom */}
@@ -118,18 +136,16 @@ const Product = () => {
               </p>
               
               <div className="flex justify-between items-start mb-2 sm:mb-4 lg:mb-8">
-                <h1 className="text-secondary text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-7xl font-black font-primary leading-[0.95] pr-4">
+                <h1 className="text-secondary text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-7xl font-black font-primary leading-[0.95] pr-4">
                   {product.name}
                 </h1>
-                <span className="text-secondary font-black text-xl sm:text-3xl lg:text-4xl shrink-0 mt-1">
-                  ₹{product.price}
-                </span>
+              
               </div>
               
               <div className="w-10 sm:w-16 h-1 bg-secondary/20 mb-3 sm:mb-6 rounded-full hidden lg:block"></div>
               
               <p className="text-secondary opacity-90 text-xs sm:text-sm lg:text-lg leading-snug lg:leading-relaxed mb-5 lg:mb-10 font-secondary italic line-clamp-3 lg:line-clamp-none max-w-lg">
-                {product.description}
+                {product.Textdescription}
               </p>
 
               {/* Desktop specific features */}
@@ -156,8 +172,11 @@ const Product = () => {
 
           {/* CTA Section */}
           <ScrollReveal delay={0.2} className="shrink-0 pb-6 lg:pb-12 relative z-10">
-            <button className="w-full bg-secondary text-primary font-black text-base lg:text-lg px-8 py-4 sm:py-5 rounded-xl lg:rounded-full transition-all duration-700 ease-premium hover:opacity-90 hover:-translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.2)] flex items-center justify-center gap-3 active:scale-95">
-              <HiOutlineShoppingBag className="text-xl lg:text-2xl" /> Add to Cart — ₹{product.price}
+            <button
+              onClick={() => addItem(product)}
+              className="w-full bg-secondary text-primary font-black text-base lg:text-lg px-8 py-4 sm:py-5 rounded-xl lg:rounded-full transition-all duration-700 ease-premium hover:opacity-90 hover:-translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.2)] flex items-center justify-center gap-3 active:scale-95"
+            >
+              <HiOutlineShoppingBag className="text-2xl lg:text-2xl" /> Add to Cart — ₹{product.price}
             </button>
           </ScrollReveal>
         </div>

@@ -31,12 +31,12 @@ const Contact = () => {
     {
       icon: HiPhone,
       label: 'Phone',
-      value: '+91 98765 43210',
+      value: '+91 9899569351',
     },
     {
       icon: HiLocationMarker,
       label: 'Location',
-      value: 'Mumbai, India',
+      value: 'Ashok Vihar, New Delhi, India',
     },
   ];
 
@@ -166,7 +166,6 @@ const Contact = () => {
                   <div className="flex gap-4">
                     {[
                       { icon: FaInstagram, label: 'Instagram' },
-                      { icon: FaTwitter, label: 'Twitter' },
                       { icon: HiMail, label: 'Email' },
                     ].map(({ icon: Icon, label }) => (
                       <a

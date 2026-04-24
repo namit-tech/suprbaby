@@ -1,13 +1,50 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaInstagram, FaYoutube } from 'react-icons/fa';
+import { HiPlus, HiMinus } from 'react-icons/hi';
 import logoBg from '../../assets/suprbabycream.png';
+
+const CollapsibleSection = ({ title, children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      {/* Desktop: always show heading + content normally */}
+      <h4 className="hidden md:block text-secondary font-bold text-lg mb-4 uppercase tracking-wider">
+        {title}
+      </h4>
+      <div className="hidden md:flex flex-col gap-3">
+        {children}
+      </div>
+
+      {/* Mobile: collapsible accordion */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="md:hidden flex items-center justify-between w-full text-secondary font-bold text-lg uppercase tracking-wider py-2"
+        aria-expanded={isOpen}
+      >
+        {title}
+        <span className="text-secondary opacity-70 text-xl transition-transform duration-300">
+          {isOpen ? <HiMinus /> : <HiPlus />}
+        </span>
+      </button>
+      <div
+        className={`md:hidden flex flex-col gap-1 overflow-hidden transition-all duration-500 ease-in-out ${
+          isOpen ? 'max-h-[500px] opacity-100 mt-2' : 'max-h-0 opacity-0'
+        }`}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
 
 const Footer = () => {
   return (
     <footer className="bg-primary py-16 px-5">
       <div className="max-w-7xl mx-auto">
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 mb-12">
           {/* Brand */}
           <div>
             <img 
@@ -21,32 +58,45 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-secondary font-bold text-lg mb-4 uppercase tracking-wider">Quick Links</h4>
-            <div className="flex flex-col gap-3">
-              {[
-                { to: '/', label: 'Home' },
-                { to: '/shop', label: 'Shop' },
-                { to: '/about', label: 'Our Story' },
-                { to: '/contact', label: 'Contact' },
-                { to: '/instagram', label: 'Instagram Feed' },
-                { to: '/faq', label: 'FAQ' },
-              ].map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className="text-secondary opacity-70 hover:opacity-100 transition-all duration-700 ease-in-out text-base min-h-[44px] flex items-center"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+          <CollapsibleSection title="Quick Links">
+            {[
+              { to: '/', label: 'Home' },
+              { to: '/shop', label: 'Shop' },
+              { to: '/about', label: 'Our Story' },
+              { to: '/contact', label: 'Contact' },
+              { to: '/faq', label: 'FAQS' },
+            ].map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="text-secondary opacity-70 hover:opacity-100 transition-all duration-700 ease-in-out text-base min-h-[40px] md:min-h-[44px] flex items-center"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </CollapsibleSection>
+
+          {/* Policies */}
+          <CollapsibleSection title="Policies">
+            {[
+              { to: '/shipping-policy', label: 'Shipping Policy' },
+              { to: '/refund-policy', label: 'Refund Policy' },
+              { to: '/privacy-policy', label: 'Privacy Policy' },
+              { to: '/terms-of-service', label: 'Terms of Service' },
+            ].map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="text-secondary opacity-70 hover:opacity-100 transition-all duration-700 ease-in-out text-base min-h-[40px] md:min-h-[44px] flex items-center"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </CollapsibleSection>
 
           {/* Socials */}
-          <div>
-            <h4 className="text-secondary font-bold text-lg mb-4 uppercase tracking-wider">Connect</h4>
-            <div className="flex gap-4 mb-6">
+          <CollapsibleSection title="Connect">
+            <div className="flex gap-4 mb-4">
               {[
                 { icon: FaInstagram, label: 'Instagram', href: '#' },
                 { icon: FaYoutube, label: 'YouTube', href: '#' },
@@ -64,7 +114,7 @@ const Footer = () => {
             <p className="text-secondary opacity-70 text-sm">
               store@suprbaby.in
             </p>
-          </div>
+          </CollapsibleSection>
         </div>
 
         {/* Divider */}
