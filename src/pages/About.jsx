@@ -11,16 +11,16 @@ const About = () => {
   ];
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       {/* ===== HERO — PRIMARY BG ===== */}
-      <section className="bg-primary min-h-[70vh] flex items-center pt-28">
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-primary min-h-[70svh] flex items-center pt-28 pb-12 px-5 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           <ScrollReveal>
             <div className='px-5'>
               <p className="text-secondary opacity-70 font-semibold uppercase tracking-[0.3em] text-sm mb-3">
                 Our Story
               </p>
-              <h1 className="text-secondary text-4xl md:text-6xl font-black leading-tight mb-6">
+              <h1 className="text-secondary text-[clamp(2.5rem,10svh,4rem)] md:text-6xl font-black leading-[1.1] mb-6">
                 Born from a love of doing things right.
               </h1>
               <p className="text-secondary opacity-80 text-lg leading-relaxed">
@@ -42,7 +42,7 @@ const About = () => {
       </section>
 
       {/* ===== STATS — SECONDARY BG ===== */}
-      <section className="bg-secondary py-16 px-5">
+      <section className="bg-secondary py-16 px-5 relative overflow-hidden">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
             <ScrollReveal key={stat.label} delay={i * 0.12}>
@@ -60,15 +60,15 @@ const About = () => {
       </section>
 
       {/* ===== PHILOSOPHY — PRIMARY BG ===== */}
-      <section className="bg-primary px-5 pt-5">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-primary px-5 py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
           <ScrollReveal>
             <div>
               <p className="text-secondary opacity-70 font-semibold uppercase tracking-[0.3em] text-sm mb-3">
                 Our Philosophy
               </p>
-              <h2 className="text-secondary text-3xl md:text-4xl font-black mb-6 leading-tight">
+              <h2 className="text-secondary text-[clamp(2rem,6svh,3.5rem)] md:text-4xl font-black mb-6 leading-[1.1]">
                 Slow & Smooth isn't just a tagline.
               </h2>
               <p className="text-secondary opacity-80 text-base leading-relaxed mb-6">
@@ -80,34 +80,34 @@ const About = () => {
             </div>
           </ScrollReveal>
            <ScrollReveal direction="left">
-            <img
-              src="/images/ourphilosphy.png"
-              alt="Rolling paper close-up detail"
+             <img
+               src="/images/ourphilosphy.png"
+               alt="Rolling paper close-up detail"
               className="w-[145%] max-w-none -ml-[20%] lg:w-[120%] lg:-ml-[10%] min-h-[450px] md:min-h-[600px] object-cover object-center rounded-3xl mt-8"
-            />
+             />
           </ScrollReveal>
         </div>
       </section>
 
       {/* ===== SUSTAINABILITY — SECONDARY BG ===== */}
-      <section className="bg-secondary py-20 px-5">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-secondary py-20 px-5 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto relative z-10">
           <ScrollReveal>
             <div className="text-center mb-14">
               <p className="text-primary opacity-70 font-semibold uppercase tracking-[0.3em] text-sm mb-3">
                 Responsibility
               </p>
-              <h2 className="text-primary text-3xl md:text-4xl font-black">
+              <h2 className="text-primary text-[clamp(2rem,6svh,3.5rem)] md:text-4xl font-black leading-[1.1]">
                 Better for You. Better for the Planet.
               </h2>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {[
               {
                 title: 'Clean Materials',
-                desc: 'Our papers are made from 100% unbleached plant fibres. No chlorine, no dyes, no mysterious additives. What you see is what you get — pure, honest paper.',
+                desc: 'Our papers are made is 100% unbleached. No chlorine, no dyes, no mysterious additives. What you see is what you get — pure, honest paper.',
               },
               {
                 title: 'Minimal Packaging',
@@ -123,7 +123,7 @@ const About = () => {
               },
             ].map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 0.12}>
-                <div className="border-2 border-primary rounded-2xl p-8 transition-all duration-700 ease-in-out hover:bg-primary group">
+                <div className="border-2 border-primary rounded-2xl p-6 md:p-8 transition-all duration-700 ease-in-out hover:bg-primary group">
                   <h3 className="text-primary text-xl font-bold mb-3 transition-all duration-700 ease-in-out group-hover:text-secondary">
                     {item.title}
                   </h3>
@@ -138,10 +138,10 @@ const About = () => {
       </section>
 
       {/* ===== CTA — PRIMARY BG ===== */}
-      <section className="bg-primary py-20 px-5">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="bg-primary py-24 px-5 relative overflow-hidden">
+        <div className="max-w-3xl mx-auto text-center relative z-10">
           <ScrollReveal>
-            <h2 className="text-secondary text-3xl md:text-5xl font-black mb-6 leading-tight">
+            <h2 className="text-secondary text-[clamp(2rem,7svh,4.5rem)] md:text-5xl font-black mb-6 leading-[1.1]">
               Ready to experience the difference?
             </h2>
             <p className="text-secondary opacity-80 text-lg mb-8 max-w-xl mx-auto leading-relaxed">

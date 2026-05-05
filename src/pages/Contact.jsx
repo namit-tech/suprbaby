@@ -3,6 +3,7 @@ import { FaInstagram, FaTwitter } from 'react-icons/fa';
 import { HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi';
 import ScrollReveal from '../components/ScrollReveal';
 
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -26,17 +27,20 @@ const Contact = () => {
     {
       icon: HiMail,
       label: 'Email',
-      value: 'store@suprbaby.in',
+      value: 'store@acesrollingpapers.com',
+      href: 'mailto:store@acesrollingpapers.com'
     },
     {
       icon: HiPhone,
       label: 'Phone',
       value: '+91 9899569351',
+      href: 'tel:+919899569351'
     },
     {
       icon: HiLocationMarker,
       label: 'Location',
       value: 'Ashok Vihar, New Delhi, India',
+      href: 'https://maps.google.com/?q=Ashok+Vihar+New+Delhi+India'
     },
   ];
 
@@ -140,9 +144,12 @@ const Contact = () => {
               <div className="space-y-8">
                 {/* Info Cards */}
                 {contactInfo.map((info) => (
-                  <div
+                  <a
                     key={info.label}
-                    className="flex items-start gap-4 border-2 border-primary rounded-2xl p-6 transition-all duration-700 ease-in-out hover:bg-primary group"
+                    href={info.href}
+                    target={info.label === 'Location' ? '_blank' : undefined}
+                    rel={info.label === 'Location' ? 'noopener noreferrer' : undefined}
+                    className="flex items-start gap-4 border-2 border-primary rounded-2xl p-6 transition-all duration-700 ease-in-out hover:bg-primary group block"
                   >
                     <div className="bg-primary text-secondary rounded-full p-3 min-h-[44px] min-w-[44px] flex items-center justify-center transition-all duration-700 ease-in-out group-hover:bg-secondary group-hover:text-primary">
                       <info.icon size={22} />
@@ -155,7 +162,7 @@ const Contact = () => {
                         {info.value}
                       </p>
                     </div>
-                  </div>
+                  </a>
                 ))}
 
                 {/* Socials */}
@@ -165,12 +172,12 @@ const Contact = () => {
                   </p>
                   <div className="flex gap-4">
                     {[
-                      { icon: FaInstagram, label: 'Instagram' },
-                      { icon: HiMail, label: 'Email' },
-                    ].map(({ icon: Icon, label }) => (
+                      { icon: FaInstagram, label: 'Instagram', href:'https://www.instagram.com/rollingpapers_suprbaby?igsh=ejQyOHNraXUyMTht' },
+                      { icon: HiMail, label: 'Email', href:'mailto:store@acesrollingpapers.com' },
+                    ].map(({ icon: Icon, label,href }) => (
                       <a
                         key={label}
-                        href="#"
+                        href={href}
                         aria-label={label}
                         className="text-primary border-2 border-primary rounded-full p-3 min-h-[44px] min-w-[44px] flex items-center justify-center transition-all duration-700 ease-in-out hover:bg-primary hover:text-secondary"
                       >

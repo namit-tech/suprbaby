@@ -98,8 +98,8 @@ const Footer = () => {
           <CollapsibleSection title="Connect">
             <div className="flex gap-4 mb-4">
               {[
-                { icon: FaInstagram, label: 'Instagram', href: '#' },
-                { icon: FaYoutube, label: 'YouTube', href: '#' },
+                { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/rollingpapers_suprbaby?igsh=ejQyOHNraXUyMTht' },
+                { icon: FaYoutube, label: 'YouTube', href: 'https://youtube.com/@rollingpapers_suprbaby?si=rC1G74eMFkTPeGnK' },
               ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
