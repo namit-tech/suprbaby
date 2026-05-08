@@ -16,6 +16,7 @@ export default {
         primary: ['"League Spartan"'],
         // secondary: ['"Playfair Display"'],
         secondary: ['"Urbanist"'],
+        accent: ['"Pinyon Script"', 'cursive'],
       },
       transitionTimingFunction: {
         'premium': 'cubic-bezier(0.16, 1, 0.3, 1)',

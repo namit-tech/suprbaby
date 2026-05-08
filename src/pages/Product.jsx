@@ -59,11 +59,7 @@ const Product = () => {
         
         {/* LEFT/TOP PORTION: SCROLLABLE CAROUSEL */}
         <div 
-          className="w-full h-[65vh] lg:h-[100vh] lg:w-1/2 bg-primary relative flex flex-col items-center justify-center z-10"
-          style={{ 
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+          className="w-full h-[65vh] lg:h-[100vh] lg:w-1/2 bg-gradient-to-br from-[#b85e43] to-[#050505] relative flex flex-col items-center justify-center z-10"
         >
           
           {/* Main Display Carousel (Scrollable) */}
@@ -73,18 +69,10 @@ const Product = () => {
             className="relative z-20 w-full h-full flex items-center overflow-x-auto snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing"
           >
             {images.map((slide, index) => {
-              const bgImg = typeof slide === 'string' ? slide : slide.bg;
               const overlayImg = typeof slide === 'object' ? slide.overlay : null;
               
               return (
                 <div key={index} className="min-w-full h-full flex items-center justify-center snap-center relative group">
-                  {/* Main Background Image */}
-                  <img 
-                    src={bgImg} 
-                    alt={`${product.name} bg ${index + 1}`} 
-                    className="w-full h-full object-contain transition-transform duration-1000 ease-out"
-                  />
-                  
                   {/* Overlapped Center Image */}
                   {overlayImg && (
                     <div className="absolute inset-0 flex items-center justify-center p-4">
@@ -174,7 +162,7 @@ const Product = () => {
           <ScrollReveal delay={0.2} className="shrink-0 pb-6 lg:pb-12 relative z-10">
             <button
               onClick={() => addItem(product)}
-              className="w-full bg-secondary text-primary font-black text-base lg:text-lg px-8 py-4 sm:py-5 rounded-xl lg:rounded-full transition-all duration-700 ease-premium hover:opacity-90 hover:-translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.2)] flex items-center justify-center gap-3 active:scale-95"
+              className="w-full bg-secondary text-primary font-black text-base lg:text-lg px-8 py-4 sm:py-5 rounded-xl transition-all duration-700 ease-premium hover:opacity-90 hover:-translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.2)] flex items-center justify-center gap-3 active:scale-95"
             >
               <HiOutlineShoppingBag className="text-2xl lg:text-2xl" /> Add to Cart — ₹{product.price}
             </button>

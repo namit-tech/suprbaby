@@ -42,10 +42,10 @@ const Instagram = () => {
                 suprbaby <HiBadgeCheck className="text-secondary text-xl" />
               </h1>
               <div className="flex gap-2">
-                <button className="bg-secondary text-primary font-bold text-sm px-6 py-1.5 rounded-lg hover:bg-secondary/90 transition-colors">
+                <button className="bg-secondary text-primary font-bold text-sm px-6 py-1.5 rounded-xl hover:bg-secondary/90 transition-colors">
                   Follow
                 </button>
-                <button className="bg-secondary/10 text-secondary font-bold text-sm px-6 py-1.5 rounded-lg hover:bg-secondary/20 transition-colors">
+                <button className="bg-secondary/10 text-secondary font-bold text-sm px-6 py-1.5 rounded-xl hover:bg-secondary/20 transition-colors">
                   Message
                 </button>
               </div>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { HiArrowRight, HiStar, HiSparkles } from 'react-icons/hi';
 import { FaCannabis, FaHeart } from 'react-icons/fa';
 import { FaFire, FaInfinity } from 'react-icons/fa6';
-import { TbCut, TbNumber0, TbZzz } from 'react-icons/tb';
+import { TbCut, TbNumber0, TbSpiral, TbZzz } from 'react-icons/tb';
 import ScrollReveal from '../components/ScrollReveal';
 import ProductCard from '../components/ProductCard';
 import products from '../data/products';
@@ -11,12 +11,6 @@ import creamComboImg from '../../public/images/weloverolling.png';
 import productBoxImg from '../../assets/Untitled design (9).png';
 import logoBgWhite from '../../assets/logobgwhite.png';
 
-const SlowBurnIcon = ({ className }) => (
-  <div className={`relative inline-flex items-center justify-center ${className}`}>
-    <FaFire className="w-[1em] h-[1em]" />
-    <TbZzz className="absolute -top-[50%] -right-[30%] text-[0.6em] rotate-[0deg] opacity-90 delay-100" />
-  </div>
-);
 
 const Home = () => {
   const featuredProducts = products.slice(0, 3);
@@ -44,7 +38,7 @@ const Home = () => {
 
   const values = [
     {
-      icon: SlowBurnIcon,
+      icon: TbSpiral,
       title: 'Slow Burn',
       desc: 'Taste only your herbs with a session that lasts 25% longer. Our ultra-thin, unbleached papers and natural gum ensure even, slow-burning combustion with zero paper aftertaste and minimal ash.',
     },
@@ -76,8 +70,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-end flex-1">
           {/* Text */}
           <div className="flex flex-col h-full lg:text-left">
-            <div className="flex-1 flex flex-col justify-end">
-            <motion.h1
+            <motion.div 
               initial="hidden"
               animate="visible"
               variants={{
@@ -85,93 +78,109 @@ const Home = () => {
                 visible: {
                   opacity: 1,
                   transition: {
-                    staggerChildren: 0.15,
+                    staggerChildren: 0.12,
                     delayChildren: 0.2,
                   },
                 },
               }}
-              className="text-left text-secondary font-primary text-[clamp(2.7rem,10.8svh,4rem)] sm:text-[4rem] md:text-[6vh] lg:text-[8.5vh] xl:text-[10vh] font-black leading-[1] mb-[2.5svh] md:mb-[3vh]"
+              className="flex-1 flex flex-col justify-end"
             >
-              {['World\'s', 'Finest', 'Quality', 'Rolling', 'Papers'].map((word, i) => (
-                <motion.span
-                  key={i}
-                  variants={{
-                    hidden: { opacity: 0, y: 40 },
-                    visible: { 
-                      opacity: 1, 
-                      y: 0, 
-                      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } 
-                    }
-                  }}
-                  className="block"
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </motion.h1>
-
-            </div>
-
-            {/* Tagline: Text on Desktop, Circular Badge (Smaller & Shifted Right) on Mobile */}
-            <div className="mb-[2svh] md:mb-[4vh] w-full px-5 lg:px-0">
-              
-              <div className="lg:hidden flex justify-end pl-2 -translate-x-[5%] -translate-y-[5%]">
-                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1.5, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative flex items-center justify-center w-[100px] h-[100px] sm:w-[190px] sm:h-[190px]"
+              <h1
+                className="text-left text-secondary font-primary text-[clamp(2.7rem,10.8svh,4rem)] sm:text-[4rem] md:text-[6vh] lg:text-[8.5vh] xl:text-[10vh] font-black leading-[1] mb-4"
+              >
+                {['Finest','Rolling', 'Papers', '& Tips'].map((word, i) => (
+                  <motion.span
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, y: 40 },
+                      visible: { 
+                        opacity: 1, 
+                        y: 0, 
+                        transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } 
+                      }
+                    }}
+                    className="block"
                   >
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                      className="w-full h-full"
-                    >
-                      <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-md">
-                        <path
-                          id="mobileBadgePath"
-                          d="M 100, 100 m -82, 0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0"
-                          fill="transparent"
-                        />
-                        <text className="text-[24px] font-bold font-secondary tracking-[0.2em] uppercase fill-secondary/90" dominantBaseline="middle">
-                          <textPath href="#mobileBadgePath" startOffset="0%" textLength="510" lengthAdjust="spacing">
-                             WITH LOVE FROM SPAIN TO INDIA •   
-                          </textPath>
-                        </text>
-                      </svg>
-                    </motion.div>
-                    
-                    {/* Center Icon */}
-                    <div className="absolute text-secondary text-[25%] drop-shadow-sm">
-                      <FaHeart className="w-9 h-9 sm:w-12 sm:h-12" />
-                    </div>
-                  </motion.div>
-              </div>
-            </div>
+                    {word}
+                  </motion.span>
+                ))}
+              </h1>
+              
+              <motion.p
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { 
+                    opacity:1, 
+                    y: 0, 
+                    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } 
+                  }
+                }}
+                className="text-left text-secondary tracking-[0.1em] font-accent text-3xl sm:text-2xl mt-5 md:mb-[3vh]"
+              >
+                Burns Like Desire Flows like Dream...
+              </motion.p>
+            </motion.div>
+
+          {/* Circular Badge - Moved to Top Right (Mobile) */}
+          <div className="lg:hidden absolute top-[10svh] right-4 z-30 pointer-events-none">
+             <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.5, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="relative flex items-center justify-center w-[100px] h-[100px] sm:w-[140px] sm:h-[140px]"
+              >
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  className="w-full h-full"
+                >
+                  <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-md">
+                    <path
+                      id="mobileBadgePath"
+                      d="M 100, 100 m -82, 0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0"
+                      fill="transparent"
+                    />
+                    <text className="text-[24px] font-bold font-secondary tracking-[0.2em] uppercase fill-secondary/90" dominantBaseline="middle">
+                      <textPath href="#mobileBadgePath" startOffset="0%" textLength="510" lengthAdjust="spacing">
+                         WITH LOVE FROM SPAIN TO INDIA •   
+                      </textPath>
+                    </text>
+                  </svg>
+                </motion.div>
+                
+                {/* Center Icon */}
+                <div className="absolute text-secondary text-[25%] drop-shadow-sm">
+                  <FaHeart className="w-8 h-8 sm:w-10 sm:h-10" />
+                </div>
+              </motion.div>
+          </div>
+        </div>
+
+          <div className="px-5 lg:px-0">
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col gap-[2svh] sm:gap-4 justify-start items-center w-[85%] sm:w-[75%] md:w-[65%] lg:w-full lg:max-w-md mx-auto lg:mx-0 mt-auto"
+              className="flex flex-col gap-[2svh] sm:gap-4 justify-start items-center w-[100%] sm:w-[75%] md:w-[65%] lg:w-full lg:max-w-md mx-auto lg:mx-0 mt-auto"
             >
               <Link
                 to="/shop"
-                className="w-full bg-secondary text-primary font-bold text-sm sm:text-base px-2 sm:px-8 py-[1.3svh] sm:py-4 rounded-full transition-all duration-1200 ease-premium hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[40px] sm:min-h-[44px] flex items-center justify-center gap-1 sm:gap-2 whitespace-nowrap"
+                className="w-full uppercase bg-secondary text-primary font-secondary font-bold text-lg sm:text-base px-2 sm:px-8 py-[1.3svh] sm:py-4 rounded-xl transition-all duration-1200 ease-premium hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[40px] sm:min-h-[44px] flex items-center justify-center gap-1 sm:gap-2 whitespace-nowrap"
               >
-                Explore <HiArrowRight />
+                Experience
               </Link>
               <Link
                 to="/about"
-                className="w-full border-2 border-secondary text-secondary font-bold text-sm sm:text-base px-2 sm:px-8 py-[1.3svh] sm:py-4 rounded-full transition-all duration-1200 ease-premium hover:bg-secondary hover:text-primary min-h-[40px] sm:min-h-[44px] flex items-center justify-center text-center whitespace-nowrap"
+                className="w-full uppercase border-2 border-secondary font-secondary text-secondary font-bold text-lg sm:text-base px-2 sm:px-8 py-[1.3svh] sm:py-4 rounded-xl transition-all duration-1200 ease-premium hover:bg-secondary hover:text-primary min-h-[40px] sm:min-h-[44px] flex items-center justify-center text-center whitespace-nowrap gap-2"
               >
-                Our Story
+              <FaHeart />  Our Story 
               </Link>
             </motion.div>
           </div>
 
           {/* ===== Hero Abstract Visual (Desktop Only) ===== */}
-          <div className="hidden lg:flex items-center justify-center relative w-full h-full">
+          <div className="hidden lg:flex items-start justify-end relative w-full h-full pt-[5vh]">
             
             {/* Soft Ambient Aurora/Bloom */}
             <motion.div 
@@ -251,14 +260,11 @@ const Home = () => {
               }
             }}
           >
-            <h3 className="text-left px-5 uppercase text-4xl md:text-5xl font-primary text-secondary font-extrabold tracking-widest leading-[1]">
+            <h3 className="text-left mt-12 px-5 uppercase text-5xl md:text-5xl font-primary text-secondary font-extrabold tracking-widest leading-[1]">
               {[
-                { text: 'We', primary: false },
-                { text: 'Love', primary: true },
-                { text: 'Rolling', primary: false },
-                { text: 'Like', primary: false },
-                { text: 'You', primary: false },
-                { text: 'Do', primary: false }
+                { text: 'Ritual', primary: false },
+                { text: 'For', primary: false },
+                { text: 'Spirit', primary: true },
               ].map((item, i) => (
                 <span key={i} className="block overflow-hidden pb-1">
                   <motion.span
@@ -292,7 +298,7 @@ const Home = () => {
           <ScrollReveal>
             <div className="text-center mb-14">
               <p className="text-secondary opacity-70 font-semibold uppercase tracking-[0.3em] text-sm mb-3">
-                Our Collection
+                The Foreplay Collection
               </p>
               <h2 className="text-secondary text-4xl md:text-5xl font-black">
                 Featured Products
@@ -312,7 +318,7 @@ const Home = () => {
             <div className="text-center mt-12">
               <Link
                 to="/shop"
-                className="bg-secondary text-primary font-bold text-base px-8 py-4 rounded-full transition-all duration-1200 ease-premium hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[44px] inline-flex items-center gap-2"
+                className="bg-secondary text-primary font-bold text-base px-8 py-4 rounded-xl transition-all duration-1200 ease-premium hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[44px] inline-flex items-center gap-2"
               >
                 View All Products <HiArrowRight />
               </Link>
@@ -474,11 +480,11 @@ const Home = () => {
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 bg-primary text-secondary placeholder:text-secondary/60 border-2 border-primary rounded-full px-6 py-4 text-base font-medium focus:outline-none min-h-[44px] transition-all duration-1200 ease-premium"
+                className="flex-1 bg-primary text-secondary placeholder:text-secondary/60 border-2 border-primary rounded-xl px-6 py-4 text-base font-medium focus:outline-none min-h-[44px] transition-all duration-1200 ease-premium"
               />
               <button
                 type="submit"
-                className="bg-primary text-secondary font-bold text-base px-8 py-4 rounded-full transition-all duration-1200 ease-premium hover:bg-secondary hover:text-primary border-2 border-primary min-h-[44px] whitespace-nowrap"
+                className="bg-primary text-secondary font-bold text-base px-8 py-4 rounded-xl transition-all duration-1200 ease-premium hover:bg-secondary hover:text-primary border-2 border-primary min-h-[44px] whitespace-nowrap"
               >
                 Subscribe
               </button>

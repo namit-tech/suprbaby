@@ -53,7 +53,7 @@ const Footer = () => {
               className="h-10 mb-4 transition-all duration-700 ease-in-out hover:opacity-80" 
             />
             <p className="text-secondary opacity-80 text-base leading-relaxed">
-              Slow & smooth. Premium rolling papers crafted for those who appreciate the finer things.
+              Slow & smooth. Premium rolling papers crafted for those who love rolling like we do.
             </p>
           </div>
 
@@ -98,14 +98,14 @@ const Footer = () => {
           <CollapsibleSection title="Connect">
             <div className="flex gap-4 mb-4">
               {[
-                { icon: FaInstagram, label: 'Instagram', href: '#' },
-                { icon: FaYoutube, label: 'YouTube', href: '#' },
+                { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/rollingpapers_suprbaby?igsh=ejQyOHNraXUyMTht' },
+                { icon: FaYoutube, label: 'YouTube', href: 'https://youtube.com/@rollingpapers_suprbaby?si=rC1G74eMFkTPeGnK' },
               ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="text-secondary border-2 border-secondary rounded-full p-3 min-h-[44px] min-w-[44px] flex items-center justify-center transition-all duration-700 ease-in-out hover:bg-secondary hover:text-primary"
+                  className="text-secondary border-2 border-secondary rounded-xl p-3 min-h-[44px] min-w-[44px] flex items-center justify-center transition-all duration-700 ease-in-out hover:bg-secondary hover:text-primary"
                 >
                   <Icon size={20} />
                 </a>
@@ -123,7 +123,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-secondary opacity-60 text-sm">
-            © {new Date().getFullYear()} Suprbaby. All rights reserved.
+            © {new Date().getFullYear()} Aces Rolling Papers. All rights reserved.
           </p>
           <p className="text-secondary opacity-60 text-sm">
             www.suprbaby.in

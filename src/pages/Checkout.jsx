@@ -125,7 +125,7 @@ const OrderReviewStep = ({ onNext }) => {
         </p>
         <Link
           to="/shop"
-          className="bg-primary text-secondary font-bold text-sm px-6 py-3 rounded-full transition-all duration-700 hover:opacity-90 inline-flex items-center gap-2"
+          className="bg-primary text-secondary font-bold text-sm px-6 py-3 rounded-xl transition-all duration-700 hover:opacity-90 inline-flex items-center gap-2"
         >
           Browse Products <HiArrowRight />
         </Link>

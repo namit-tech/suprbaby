@@ -11,7 +11,7 @@ const TermsOfService = () => {
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-bold text-primary tracking-wide text-center pb-4 mb-4">OVERVIEW</h2>
             <p className="text-lg text-primary leading-relaxed text-center">
-              This website is operated by suprbaby. Owned By VIKRANT JAIN.
+              This website is operated by Aces Rolling Papers. Owned By VIKRANT JAIN.
             </p>
             <p className="text-lg text-primary leading-relaxed text-center">
               Throughout the site, the terms "we", "us" and "our" refer to suprbaby. suprbaby offers this website, including all information, tools and Services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.

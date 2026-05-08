@@ -37,7 +37,7 @@ const Shop = () => {
               <button
                 key={cat.key}
                 onClick={() => setActiveCategory(cat.key)}
-                className={`font-bold text-sm px-6 py-3 rounded-full transition-all duration-700 ease-in-out min-h-[44px] border-2 border-primary ${
+                className={`font-bold text-sm px-6 py-3 rounded-xl transition-all duration-700 ease-in-out min-h-[44px] border-2 border-primary ${
                   activeCategory === cat.key
                     ? 'bg-primary text-secondary'
                     : 'bg-secondary text-primary hover:bg-primary hover:text-secondary'
@@ -95,7 +95,7 @@ const Shop = () => {
             </p>
             <button
               onClick={() => setActiveCategory('papers')}
-              className="bg-primary text-secondary font-bold text-base px-8 py-4 rounded-full transition-all duration-700 ease-in-out hover:bg-secondary hover:text-primary border-2 border-primary min-h-[44px]"
+              className="bg-primary text-secondary font-bold text-base px-8 py-4 rounded-xl transition-all duration-700 ease-in-out hover:bg-secondary hover:text-primary border-2 border-primary min-h-[44px]"
             >
               View Rolling Papers
             </button>
