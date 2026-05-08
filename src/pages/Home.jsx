@@ -117,7 +117,7 @@ const Home = () => {
                 }}
                 className="text-left text-secondary tracking-[0.1em] font-accent text-3xl sm:text-2xl mt-5 md:mb-[3vh]"
               >
-                Burns Like Desire Flows like Dream...
+                Burns Like Desire <br /> Flows like Dream...
               </motion.p>
             </motion.div>
 
