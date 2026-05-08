@@ -301,7 +301,7 @@ const Home = () => {
                 The Foreplay Collection
               </p>
               <h2 className="text-secondary text-4xl md:text-5xl font-black">
-                Featured Products
+                Just Getting Started
               </h2>
             </div>
           </ScrollReveal>
