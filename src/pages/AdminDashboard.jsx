@@ -86,7 +86,7 @@ const AdminDashboard = () => {
         <div className="flex items-center gap-4">
           <button 
             onClick={fetchOrders}
-            className="p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 transition-all"
+            className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all"
             title="Refresh Orders"
           >
             <svg className="w-5 h-5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,7 +95,7 @@ const AdminDashboard = () => {
           </button>
           <button 
             onClick={handleLogout}
-            className="px-6 py-2.5 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all"
+            className="px-6 py-2.5 rounded-xl bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all"
           >
             Sign Out
           </button>

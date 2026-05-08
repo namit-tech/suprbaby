@@ -89,7 +89,7 @@ const Navbar = () => {
 
           <Link
             to="/shop"
-            className="bg-secondary text-primary font-bold text-sm px-6 py-2.5 rounded-full transition-all duration-700 ease-in-out hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[44px] flex items-center"
+            className="bg-secondary text-primary font-bold text-sm px-6 py-2.5 rounded-xl transition-all duration-700 ease-in-out hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[44px] flex items-center"
           >
             Shop Now
           </Link>
@@ -161,7 +161,7 @@ const Navbar = () => {
               >
                 <Link
                   to="/shop"
-                  className="bg-secondary text-primary font-bold text-base px-6 py-3 rounded-full inline-block text-center transition-all duration-700 ease-in-out hover:bg-primary hover:text-secondary border-2 border-secondary mt-2 min-h-[44px]"
+                  className="bg-secondary text-primary font-bold text-base px-6 py-3 rounded-xl inline-block text-center transition-all duration-700 ease-in-out hover:bg-primary hover:text-secondary border-2 border-secondary mt-2 min-h-[44px]"
                 >
                   Shop Now
                 </Link>

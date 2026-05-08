@@ -5,7 +5,7 @@ const ProductCard = ({ product }) => {
   const { addItem } = useCart();
 
   return (
-    <div className="group relative overflow-hidden border-2 border-secondary transition-all duration-700 ease-in-out hover:shadow-2xl hover:-translate-y-1 flex flex-col aspect-[3/4] sm:aspect-auto sm:min-h-[480px] rounded-2xl bg-transparent">
+    <div className="group relative overflow-hidden border-2 border-secondary transition-all duration-700 ease-in-out hover:shadow-2xl hover:-translate-y-1 flex flex-col aspect-[3/4] sm:aspect-auto sm:min-h-[480px] rounded-2xl bg-gradient-to-br from-[#b85e43] to-[#050505]">
       
       {/* Centered Overlay Product Image - Wrapped in Link for better clickability */}
       {product.overlayImage && (
@@ -23,32 +23,35 @@ const ProductCard = ({ product }) => {
 
       {/* Content Block overlapping the image */}
       <div className="relative z-20 w-full p-5 pt-2 flex flex-col mt-auto">
-        <Link to={`/product/${product.id}`} className="inline-block hover:opacity-80 transition-opacity">
-          <h3 className="text-secondary font-bold text-xl md:text-xl leading-tight">
-            {product.name}
-          </h3>
-        </Link>
-        
-        {product.description && (
-          <p className="font-secondary text-secondary opacity-70 text-sm leading-relaxed line-clamp-2 font-medium mt-1">
-            {product.description}
-          </p>
-        )}
+        <div className="flex items-end justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            <Link to={`/product/${product.id}`} className="inline-block hover:opacity-80 transition-opacity">
+              <h3 className="text-secondary font-bold text-xl md:text-xl leading-tight truncate">
+                {product.name}
+              </h3>
+            </Link>
+            
+            {product.description && (
+              <p className="font-secondary text-secondary opacity-70 text-sm leading-relaxed line-clamp-1 font-medium mt-1">
+                {product.description}
+              </p>
+            )}
+          </div>
 
-        {/* Price & Action */}
-        <div className="flex items-end justify-between mt-4 pb-1">
-          <span className="font-secondary text-secondary font-extrabold text-3xl md:text-2xl leading-none">
-            ₹{product.price}
-          </span>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              addItem(product);
-            }}
-            className="text-secondary font-bold text-sm px-4 py-2 transition-all duration-700 ease-premium hover:bg-secondary hover:text-primary border-2 border-secondary rounded-lg flex items-center hover:scale-95"
-          >
-            Add to Cart
-          </button>
+          <div className="flex flex-col items-end gap-1 shrink-0">
+            <span className="font-secondary text-secondary font-extrabold text-2xl md:text-2xl leading-none">
+              ₹{product.price}
+            </span>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                addItem(product);
+              }}
+              className="text-secondary font-bold text-xs px-3 py-2 transition-all duration-700 ease-premium hover:bg-secondary hover:text-primary border-2 border-secondary rounded-xl flex items-center hover:scale-95 whitespace-nowrap"
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { HiArrowRight } from 'react-icons/hi';
 import ScrollReveal from '../components/ScrollReveal';
 
@@ -20,7 +21,7 @@ const About = () => {
               <p className="text-secondary opacity-70 font-semibold uppercase tracking-[0.3em] text-sm mb-3">
                 Our Story
               </p>
-              <h1 className="text-secondary text-[clamp(2.5rem,10svh,4rem)] md:text-6xl font-black leading-[1.1] mb-6">
+              <h1 className="text-secondary text-3xl md:text-6xl font-black leading-[1.1] mb-6">
                 Born from a love of doing things right.
               </h1>
               <p className="text-secondary opacity-80 text-lg leading-relaxed">
@@ -30,12 +31,56 @@ const About = () => {
           </ScrollReveal>
 
           <ScrollReveal direction="right">
-            <div className="flex justify-center">
+            <div className="flex justify-center relative">
               <img
                 src="/images/ourstory.png"
                 alt="Suprbaby brand showcase"
                 className="w-full max-w-lg"
               />
+              {/* Text Overlay */}
+              <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full z-20">
+                 <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                    variants={{
+                      hidden: {},
+                      visible: { 
+                        transition: { 
+                          staggerChildren: 0.15, 
+                          delayChildren: 0.2 
+                        } 
+                      }
+                    }}
+                 >
+                    <h3 className="text-left px-8 text-4xl sm:text-5xl font-primary text-secondary font-extrabold tracking-widest leading-[1]">
+                      {[
+                        { text: 'I', primary: false },
+                        { text: 'See', primary: false },
+                        { text: 'You', primary: true },
+                      ].map((item, i) => (
+                        <span key={i} className="block overflow-hidden pb-1">
+                          <motion.span
+                            variants={{
+                              hidden: { opacity: 0, x: -40, filter: 'blur(12px)' },
+                              visible: { 
+                                opacity: 1, 
+                                x: 0, 
+                                filter: 'blur(0px)',
+                                transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] }
+                              }
+                            }}
+                            className={`inline-block ${item.primary ? 'text-primary' : ''}`}
+                          >
+                            {item.text}
+                          </motion.span>
+                        </span>
+                      ))}
+                    </h3>
+                 </motion.div>
+              </div>
+
+              {/* Sparkle Overlay */}
             </div>
           </ScrollReveal>
         </div>
@@ -68,8 +113,8 @@ const About = () => {
               <p className="text-secondary opacity-70 font-semibold uppercase tracking-[0.3em] text-sm mb-3">
                 Our Philosophy
               </p>
-              <h2 className="text-secondary text-[clamp(2rem,6svh,3.5rem)] md:text-4xl font-black mb-6 leading-[1.1]">
-                Slow & Smooth isn't just a tagline.
+              <h2 className="text-secondary text-3xl md:text-4xl font-black mb-6 leading-[1.1]">
+                Slow & Smooth <br /> isn't just a tagline.
               </h2>
               <p className="text-secondary opacity-80 text-base leading-relaxed mb-6">
                 It's our design principle. We believe that the best things in life shouldn't be rushed. Our papers burn 40% slower than conventional brands because we use a proprietary blend of unbleached hemp fibers — no accelerants, no chemicals, no shortcuts.
@@ -79,12 +124,58 @@ const About = () => {
               </p>
             </div>
           </ScrollReveal>
-           <ScrollReveal direction="left">
-             <img
-               src="/images/ourphilosphy.png"
-               alt="Rolling paper close-up detail"
-              className="w-[145%] max-w-none -ml-[20%] lg:w-[120%] lg:-ml-[10%] min-h-[450px] md:min-h-[600px] object-cover object-center rounded-3xl mt-8"
-             />
+          <ScrollReveal direction="left">
+            <div className="flex justify-center relative overflow-hidden mt-8">
+              <img
+                src="/images/ourphilosphy.png"
+                alt="Rolling paper close-up detail"
+                className="w-full max-w-lg"
+              />
+              {/* Text Overlay */}
+              <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full z-20">
+                 <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                    variants={{
+                      hidden: {},
+                      visible: { 
+                        transition: { 
+                          staggerChildren: 0.15, 
+                          delayChildren: 0.2 
+                        } 
+                      }
+                    }}
+                 >
+                    <h3 className="text-left px-8 text-4xl sm:text-5xl font-primary text-secondary font-extrabold tracking-widest leading-[1]">
+                      {[
+                        { text: 'Just', primary: false },
+                        { text: 'For', primary: false },
+                        { text: 'You', primary: true },
+                      ].map((item, i) => (
+                        <span key={i} className="block overflow-hidden pb-1">
+                          <motion.span
+                            variants={{
+                              hidden: { opacity: 0, x: -40, filter: 'blur(12px)' },
+                              visible: { 
+                                opacity: 1, 
+                                x: 0, 
+                                filter: 'blur(0px)',
+                                transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] }
+                              }
+                            }}
+                            className={`inline-block ${item.primary ? 'text-primary' : ''}`}
+                          >
+                            {item.text}
+                          </motion.span>
+                        </span>
+                      ))}
+                    </h3>
+                 </motion.div>
+              </div>
+
+              {/* Sparkle Overlay */}
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -107,7 +198,7 @@ const About = () => {
             {[
               {
                 title: 'Clean Materials',
-                desc: 'Our papers are made is 100% unbleached. No chlorine, no dyes, no mysterious additives. What you see is what you get — pure, honest paper.',
+                desc: 'Our papers are made from 100% unbleached plant fibres. No chlorine, no dyes, no mysterious additives. What you see is what you get — pure, honest paper.',
               },
               {
                 title: 'Minimal Packaging',
@@ -149,7 +240,7 @@ const About = () => {
             </p>
             <Link
               to="/shop"
-              className="bg-secondary text-primary font-bold text-base px-8 py-4 rounded-full transition-all duration-700 ease-in-out hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[44px] inline-flex items-center gap-2"
+              className="bg-secondary text-primary font-bold text-base px-8 py-4 rounded-xl transition-all duration-700 ease-in-out hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[44px] inline-flex items-center gap-2"
             >
               Shop Now <HiArrowRight />
             </Link>

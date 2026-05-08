@@ -94,7 +94,7 @@ const CartDrawer = () => {
                       closeDrawer();
                       navigate('/shop');
                     }}
-                    className="bg-primary text-secondary font-bold text-sm px-6 py-3 rounded-full transition-all duration-700 ease-in-out hover:opacity-90 flex items-center gap-2"
+                    className="bg-primary text-secondary font-bold text-sm px-6 py-3 rounded-xl transition-all duration-700 ease-in-out hover:opacity-90 flex items-center gap-2"
                   >
                     Browse Products <HiArrowRight />
                   </button>
