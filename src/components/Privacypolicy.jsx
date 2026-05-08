@@ -135,8 +135,8 @@ const PrivacyPolicy = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-primary tracking-wide mb-4">Contact</h2>
             <p className="text-lg text-primary leading-relaxed text-center">
               Should you have any questions about our privacy practices or this Privacy Policy, or if you would like to exercise any of the rights available to you, please email us at{" "}
-              <a href="mailto:store@suprbaby.in" className="text-primary hover:underline decoration-primary underline-offset-4 transition-colors font-medium">
-                store@suprbaby.in
+              <a href="mailto:store@acesrollingpapers.com" className="text-primary hover:underline decoration-primary underline-offset-4 transition-colors font-medium">
+                store@acesrollingpapers.com
               </a>{" "}
               or contact us at New Delhi, IN.
             </p>

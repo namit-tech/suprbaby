@@ -21,8 +21,8 @@ const RefundPolicy = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-primary tracking-wide text-center pb-4 mb-4">How to Start a Return</h2>
             <p className="text-lg text-primary leading-relaxed text-center">
               To start a return, you can contact us at{" "}
-              <a className="text-primary hover:underline decoration-primary transition-colors font-medium" href="mailto:store@suprbaby.in">
-                store@suprbaby.in
+              <a className="text-primary hover:underline decoration-primary transition-colors font-medium" href="mailto:store@acesrollingpapers.com">
+                store@acesrollingpapers.com
               </a>
               . Please note that returns will need to be sent to the following address:
             </p>
@@ -34,8 +34,8 @@ const RefundPolicy = () => {
             </p>
             <p className="text-lg text-primary leading-relaxed text-center mt-4">
               You can always contact us for any return question at{" "}
-              <a className="text-primary hover:underline decoration-primary transition-colors font-medium" href="mailto:store@suprbaby.in">
-                store@suprbaby.in
+              <a className="text-primary hover:underline decoration-primary transition-colors font-medium" href="mailto:store@acesrollingpapers.com">
+                store@acesrollingpapers.com
               </a>
               .
             </p>
@@ -48,8 +48,8 @@ const RefundPolicy = () => {
             </p>
             <p className="text-lg text-primary leading-relaxed text-center mt-4">
               If more than 15 business days have passed since we've approved your return, please contact us at{" "}
-              <a className="text-primary hover:underline decoration-primary transition-colors font-medium" href="mailto:store@suprbaby.in">
-                store@suprbaby.in
+              <a className="text-primary hover:underline decoration-primary transition-colors font-medium" href="mailto:store@acesrollingpapers.com">
+                store@acesrollingpapers.com
               </a>
               .
             </p>

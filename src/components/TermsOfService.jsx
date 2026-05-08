@@ -140,8 +140,8 @@ const TermsOfService = () => {
           <div className="space-y-4 p-6 text-center flex flex-col items-center">
             <p className="text-lg text-primary leading-relaxed text-center">
               Questions about the Terms of Service should be sent to us at{" "}
-              <a className="text-primary hover:underline decoration-primary transition-colors font-medium" href="mailto:store@suprbaby.in">
-                store@suprbaby.in
+              <a className="text-primary hover:underline decoration-primary transition-colors font-medium" href="mailto:store@acesrollingpapers.com">
+                store@acesrollingpapers.com
               </a>
               .
             </p>

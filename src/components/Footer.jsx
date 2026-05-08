@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaInstagram, FaYoutube } from 'react-icons/fa';
 import { HiPlus, HiMinus } from 'react-icons/hi';
-import logoBg from '../../assets/suprbabycream.png';
+import logoBg from '../../assets/Suprbabycream.png';
 
 const CollapsibleSection = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -112,7 +112,7 @@ const Footer = () => {
               ))}
             </div>
             <p className="text-secondary opacity-70 text-sm">
-              store@suprbaby.in
+              store@acesrollingpapers.com
             </p>
           </CollapsibleSection>
         </div>

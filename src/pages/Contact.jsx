@@ -26,7 +26,7 @@ const Contact = () => {
     {
       icon: HiMail,
       label: 'Email',
-      value: 'store@suprbaby.in',
+      value: 'store@acesrollingpapers.com',
     },
     {
       icon: HiPhone,
