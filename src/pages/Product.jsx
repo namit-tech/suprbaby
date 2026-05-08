@@ -59,7 +59,7 @@ const Product = () => {
         
         {/* LEFT/TOP PORTION: SCROLLABLE CAROUSEL */}
         <div 
-          className="w-full h-[65vh] lg:h-[100vh] lg:w-1/2 bg-gradient-to-br from-[#b85e43] to-[#050505] relative flex flex-col items-center justify-center z-10"
+          className="w-full h-[65vh] lg:h-[100vh] lg:w-1/2 bg-[radial-gradient(circle_at_center,_#b85e43_0%,_#050505_100%)] relative flex flex-col items-center justify-center z-10"
         >
           
           {/* Main Display Carousel (Scrollable) */}
