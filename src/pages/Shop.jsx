@@ -17,7 +17,7 @@ const Shop = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <ScrollReveal>
-          <div className="text-center mb-12">
+          <div className="text-center mb-2">
             <p className="text-primary opacity-70 font-semibold uppercase tracking-[0.3em] text-sm mb-3">
               Browse
             </p>

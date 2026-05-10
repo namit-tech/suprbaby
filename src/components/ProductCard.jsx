@@ -23,10 +23,10 @@ const ProductCard = ({ product }) => {
 
       {/* Content Block overlapping the image */}
       <div className="relative z-20 w-full p-5 pt-2 flex flex-col mt-auto">
-        <div className="flex items-end justify-between gap-4">
+        <div className="flex items-start justify-between gap-4">
           <div className="flex-1 min-w-0">
             <Link to={`/product/${product.id}`} className="inline-block hover:opacity-80 transition-opacity">
-              <h3 className="text-secondary font-bold text-xl md:text-xl leading-tight truncate">
+              <h3 className="text-secondary font-bold text-2xl md:text-xl leading-tight truncate">
                 {product.name}
               </h3>
             </Link>
@@ -47,7 +47,7 @@ const ProductCard = ({ product }) => {
                 e.preventDefault();
                 addItem(product);
               }}
-              className="text-secondary font-bold text-base px-4 py-2 transition-all duration-700 ease-premium hover:bg-secondary hover:text-primary border-2 border-secondary rounded-xl flex items-center hover:scale-95 whitespace-nowrap"
+              className="text-secondary font-bold text-base px-4 py-2 transition-all duration-700 ease-premium hover:bg-secondary hover:text-primary border-2 border-secondary flex items-center hover:scale-95 whitespace-nowrap"
             >
               Add to Cart
             </button>
