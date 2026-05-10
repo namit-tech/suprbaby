@@ -117,7 +117,7 @@ const About = () => {
                 Slow & Smooth <br /> isn't just a tagline.
               </h2>
               <p className="text-secondary opacity-80 text-base leading-relaxed mb-6">
-                It's our design principle. We believe that the best things in life shouldn't be rushed. Our papers burn 40% slower than conventional brands because we use a proprietary blend of unbleached hemp fibers — no accelerants, no chemicals, no shortcuts.
+                It's our design principle. We believe that the best things in life shouldn't be rushed. Our papers burn 40% slower than conventional brands because we use a proprietary blend of unbleached plant fibers — no accelerants, no chemicals, no shortcuts.
               </p>
               <p className="text-secondary opacity-80 text-base leading-relaxed">
                 Every booklet is hand-inspected for consistency. Every pack is sealed to preserve freshness. Every experience is crafted to be effortlessly smooth.

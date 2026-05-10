@@ -24,7 +24,7 @@ const Shop = () => {
             <h1 className="text-primary text-4xl md:text-6xl font-black mb-4">
               Our Products
             </h1>
-            <p className="text-primary opacity-70 text-base max-w-xl mx-auto leading-relaxed">
+            <p className="text-primary opacity-70 text-base max-w-xl mx-auto leading-relaxed rounded-2xl px-6 py-4 text-center">
               Every Suprbaby product is crafted with care — slow-burning, unbleached, and built for those who like it smooth.
             </p>
           </div>
@@ -91,7 +91,7 @@ const Shop = () => {
               Can't decide?
             </h3>
             <p className="text-primary opacity-70 text-base mb-6 max-w-md mx-auto leading-relaxed">
-              Start with our Classic Rolling Papers — our bestseller and the perfect introduction to Suprbaby.
+              Start with our Natural Rolling Papers — our bestseller and the perfect introduction to Suprbaby.
             </p>
             <button
               onClick={() => setActiveCategory('papers')}
