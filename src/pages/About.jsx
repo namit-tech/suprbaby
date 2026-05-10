@@ -1,14 +1,36 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useInView, animate } from 'framer-motion';
 import { HiArrowRight } from 'react-icons/hi';
 import ScrollReveal from '../components/ScrollReveal';
 
+const Counter = ({ target, duration = 2, suffix = '' }) => {
+  const nodeRef = useRef();
+  const isInView = useInView(nodeRef, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView) {
+      const node = nodeRef.current;
+      const controls = animate(0, target, {
+        duration,
+        ease: "easeOut",
+        onUpdate(value) {
+          node.textContent = Math.round(value) + suffix;
+        },
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, target, duration, suffix]);
+
+  return <span ref={nodeRef}>0</span>;
+};
+
 const About = () => {
   const stats = [
-    { value: '2023', label: 'Founded' },
-    { value: '100%', label: 'Unbleached' },
-    { value: '50K+', label: 'Happy Smokers' },
-    { value: 'ZERO', label: 'Chemicals' },
+    { value: 2023, label: 'Founded', suffix: '' },
+    { value: 100, label: 'Unbleached', suffix: '%' },
+    { value: 10, label: 'Happy Smokers', suffix: 'K+' },
+    { value: 0, label: 'Chemicals', isText: true, text: 'ZERO' },
   ];
 
   return (
@@ -24,7 +46,7 @@ const About = () => {
               <h1 className="text-secondary text-3xl md:text-6xl font-black leading-[1.1] mb-6">
                 Born from a love of doing things right.
               </h1>
-              <p className="text-secondary opacity-80 text-lg leading-relaxed">
+              <p className="text-secondary opacity-80 text-lg leading-relaxed text-justify">
                 Suprbaby started with a simple idea — rolling papers shouldn't just be functional, they should be an experience. Every detail, from the paper thickness to the packaging, is designed to slow you down and help you savour the moment.
               </p>
             </div>
@@ -53,30 +75,6 @@ const About = () => {
                       }
                     }}
                  >
-                    <h3 className="text-left px-8 text-4xl sm:text-5xl font-primary text-secondary font-extrabold tracking-widest leading-[1]">
-                      {[
-                        { text: 'I', primary: false },
-                        { text: 'See', primary: false },
-                        { text: 'You', primary: true },
-                      ].map((item, i) => (
-                        <span key={i} className="block overflow-hidden pb-1">
-                          <motion.span
-                            variants={{
-                              hidden: { opacity: 0, x: -40, filter: 'blur(12px)' },
-                              visible: { 
-                                opacity: 1, 
-                                x: 0, 
-                                filter: 'blur(0px)',
-                                transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] }
-                              }
-                            }}
-                            className={`inline-block ${item.primary ? 'text-primary' : ''}`}
-                          >
-                            {item.text}
-                          </motion.span>
-                        </span>
-                      ))}
-                    </h3>
                  </motion.div>
               </div>
 
@@ -93,7 +91,11 @@ const About = () => {
             <ScrollReveal key={stat.label} delay={i * 0.12}>
               <div className="text-center">
                 <p className="text-primary text-4xl md:text-5xl font-black mb-2">
-                  {stat.value}
+                  {stat.isText ? (
+                    stat.text
+                  ) : (
+                    <Counter target={stat.value} suffix={stat.suffix} />
+                  )}
                 </p>
                 <p className="text-primary opacity-70 text-sm font-semibold uppercase tracking-wider">
                   {stat.label}
@@ -116,10 +118,10 @@ const About = () => {
               <h2 className="text-secondary text-3xl md:text-4xl font-black mb-6 leading-[1.1]">
                 Slow & Smooth <br /> isn't just a tagline.
               </h2>
-              <p className="text-secondary opacity-80 text-base leading-relaxed mb-6">
+              <p className="text-secondary opacity-80 text-base leading-relaxed mb-6 text-justify">
                 It's our design principle. We believe that the best things in life shouldn't be rushed. Our papers burn 40% slower than conventional brands because we use a proprietary blend of unbleached plant fibers — no accelerants, no chemicals, no shortcuts.
               </p>
-              <p className="text-secondary opacity-80 text-base leading-relaxed">
+              <p className="text-secondary opacity-80 text-base leading-relaxed text-justify">
                 Every booklet is hand-inspected for consistency. Every pack is sealed to preserve freshness. Every experience is crafted to be effortlessly smooth.
               </p>
             </div>
@@ -147,30 +149,6 @@ const About = () => {
                       }
                     }}
                  >
-                    <h3 className="text-left px-8 text-4xl sm:text-5xl font-primary text-secondary font-extrabold tracking-widest leading-[1]">
-                      {[
-                        { text: 'Just', primary: false },
-                        { text: 'For', primary: false },
-                        { text: 'You', primary: true },
-                      ].map((item, i) => (
-                        <span key={i} className="block overflow-hidden pb-1">
-                          <motion.span
-                            variants={{
-                              hidden: { opacity: 0, x: -40, filter: 'blur(12px)' },
-                              visible: { 
-                                opacity: 1, 
-                                x: 0, 
-                                filter: 'blur(0px)',
-                                transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] }
-                              }
-                            }}
-                            className={`inline-block ${item.primary ? 'text-primary' : ''}`}
-                          >
-                            {item.text}
-                          </motion.span>
-                        </span>
-                      ))}
-                    </h3>
                  </motion.div>
               </div>
 

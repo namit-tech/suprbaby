@@ -162,7 +162,7 @@ const Product = () => {
           <ScrollReveal delay={0.2} className="shrink-0 pb-6 lg:pb-12 relative z-10">
             <button
               onClick={() => addItem(product)}
-              className="w-full bg-secondary text-primary font-black text-base lg:text-lg px-8 py-4 sm:py-5 transition-all duration-700 ease-premium hover:opacity-90 hover:-translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.2)] flex items-center justify-center gap-3 active:scale-95"
+              className="w-full bg-secondary text-primary font-black text-base px-8 py-4 sm:py-5 transition-all duration-700 ease-premium hover:opacity-90 hover:-translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.2)] flex items-center justify-center gap-3 active:scale-95"
             >
               <HiOutlineShoppingBag className="text-2xl lg:text-2xl" /> Add to Cart — ₹{product.price}
             </button>

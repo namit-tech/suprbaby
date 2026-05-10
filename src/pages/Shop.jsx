@@ -32,12 +32,27 @@ const Shop = () => {
 
         {/* Category Filters */}
         <ScrollReveal>
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((cat) => (
+          <div className="max-w-md mx-auto mb-12 flex flex-col gap-3">
+            <div className="grid grid-cols-2 gap-3">
+              {categories.slice(0, 2).map((cat) => (
+                <button
+                  key={cat.key}
+                  onClick={() => setActiveCategory(cat.key)}
+                  className={`font-bold text-base px-6 py-3 transition-all duration-700 ease-in-out min-h-[44px] border-2 border-primary w-full ${
+                    activeCategory === cat.key
+                      ? 'bg-primary text-secondary'
+                      : 'bg-secondary text-primary hover:bg-primary hover:text-secondary'
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+            {categories.slice(2).map((cat) => (
               <button
                 key={cat.key}
                 onClick={() => setActiveCategory(cat.key)}
-                className={`font-bold text-sm px-6 py-3 rounded-xl transition-all duration-700 ease-in-out min-h-[44px] border-2 border-primary ${
+                className={`font-bold text-base px-6 py-3 transition-all duration-700 ease-in-out min-h-[44px] border-2 border-primary w-full ${
                   activeCategory === cat.key
                     ? 'bg-primary text-secondary'
                     : 'bg-secondary text-primary hover:bg-primary hover:text-secondary'
