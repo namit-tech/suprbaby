@@ -47,7 +47,7 @@ const ProductCard = ({ product }) => {
                 e.preventDefault();
                 addItem(product);
               }}
-              className="text-secondary font-bold text-xs px-3 py-2 transition-all duration-700 ease-premium hover:bg-secondary hover:text-primary border-2 border-secondary rounded-xl flex items-center hover:scale-95 whitespace-nowrap"
+              className="text-secondary font-bold text-base px-4 py-2 transition-all duration-700 ease-premium hover:bg-secondary hover:text-primary border-2 border-secondary rounded-xl flex items-center hover:scale-95 whitespace-nowrap"
             >
               Add to Cart
             </button>

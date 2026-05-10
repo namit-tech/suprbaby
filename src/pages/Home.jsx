@@ -319,7 +319,7 @@ const Home = () => {
             <div className="text-center mt-12">
               <Link
                 to="/shop"
-                className="bg-secondary text-primary font-bold text-base px-8 py-4 rounded-xl transition-all duration-1200 ease-premium hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[44px] inline-flex items-center gap-2"
+                className="bg-secondary text-primary font-bold text-base px-6 py-2.5 rounded-xl transition-all duration-700 ease-in-out hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[44px] inline-flex items-center gap-2"
               >
                 View All Products <HiArrowRight />
               </Link>

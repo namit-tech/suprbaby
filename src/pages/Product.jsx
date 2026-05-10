@@ -28,24 +28,23 @@ const Product = () => {
   // Carousel images (Using dynamic images with overlay support)
   const images = product.images || [];
 
-  const handleDragEnd = (event, info) => {
-    const swipeThreshold = 50;
-    const velocityThreshold = 500;
-    const { offset, velocity } = info;
-
-    if (offset.x < -swipeThreshold || velocity.x < -velocityThreshold) {
-      if (activeImageIndex < images.length - 1) {
-        setActiveImageIndex(activeImageIndex + 1);
-      }
-    } else if (offset.x > swipeThreshold || velocity.x > velocityThreshold) {
-      if (activeImageIndex > 0) {
-        setActiveImageIndex(activeImageIndex - 1);
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, offsetWidth } = scrollRef.current;
+      const index = Math.round(scrollLeft / offsetWidth);
+      if (index !== activeImageIndex) {
+        setActiveImageIndex(index);
       }
     }
   };
 
   const scrollToImage = (index) => {
-    setActiveImageIndex(index);
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({
+        left: index * scrollRef.current.offsetWidth,
+        behavior: 'smooth'
+      });
+    }
   };
 
   // Related products
@@ -60,24 +59,20 @@ const Product = () => {
         
         {/* LEFT/TOP PORTION: SCROLLABLE CAROUSEL */}
         <div 
-          className="w-full h-[65vh] lg:h-[100vh] lg:w-1/2 bg-[radial-gradient(circle_at_center,_#b85e43_0%,_#050505_100%)] relative flex flex-col items-center justify-center z-10 overflow-hidden"
+          className="w-full h-[65vh] lg:h-[100vh] lg:w-1/2 bg-[radial-gradient(circle_at_center,_#b85e43_0%,_#050505_100%)] relative flex flex-col items-center justify-center z-10"
         >
           
-          {/* Main Display Carousel (Drag Controlled) */}
-          <motion.div 
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragEnd={handleDragEnd}
-            animate={{ x: `-${activeImageIndex * 100}%` }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative z-20 w-full h-full flex items-center cursor-grab active:cursor-grabbing touch-pan-y"
+          {/* Main Display Carousel (Scrollable) */}
+          <div 
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="relative z-20 w-full h-full flex items-center overflow-x-auto snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing"
           >
             {images.map((slide, index) => {
               const overlayImg = typeof slide === 'object' ? slide.overlay : null;
               
               return (
-                <div key={index} className="min-w-full h-full flex items-center justify-center relative group">
+                <div key={index} className="min-w-full h-full flex items-center justify-center snap-center relative group">
                   {/* Overlapped Center Image */}
                   {overlayImg && (
                     <div className="absolute inset-0 flex items-center justify-center p-4">
@@ -95,7 +90,7 @@ const Product = () => {
                 </div>
               );
             })}
-          </motion.div>
+          </div>
 
           {/* CAROUSEL DOTS - Overlapping bottom */}
           <div className="flex gap-3 absolute bottom-8 lg:bottom-12 left-1/2 -translate-x-1/2 z-30">
@@ -167,7 +162,7 @@ const Product = () => {
           <ScrollReveal delay={0.2} className="shrink-0 pb-6 lg:pb-12 relative z-10">
             <button
               onClick={() => addItem(product)}
-              className="w-full bg-secondary text-primary font-black text-base lg:text-lg px-8 py-4 sm:py-5 transition-all duration-700 ease-premium hover:opacity-90 hover:-translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.2)] flex items-center justify-center gap-3 active:scale-95"
+              className="w-full bg-secondary text-primary font-black text-base px-8 py-4 sm:py-5 transition-all duration-700 ease-premium hover:opacity-90 hover:-translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.2)] flex items-center justify-center gap-3 active:scale-95"
             >
               <HiOutlineShoppingBag className="text-2xl lg:text-2xl" /> Add to Cart — ₹{product.price}
             </button>
