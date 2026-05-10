@@ -1,11 +1,11 @@
 const products = [
     {
     id: 1,
-    name: 'King Size Slim Kit',
+    name: 'Kingsize Slim Kit',
     price: 144,
     category: 'papers',
      description: '32 Papers + 32 Tips',
-    Textdescription: 'Extra-long king size papers for when you want to take your time. Same smooth burn, more room to roll.',
+    Textdescription: 'Slow burning Kingsize papers for when you want to take your time. Same smooth burn, more room to roll.',
     image: '/images/eyenormal.png',
     overlayImage: '/images/comboone.png',
     images: [
@@ -22,7 +22,7 @@ const products = [
     price: 69,
     category: 'tips',
      description: '32 Perforated Tips',
-    Textdescription: 'Pack of 32 perfectly shaped rolling tips. Just fill, pack, twist, and enjoy. No skill required.',
+    Textdescription: 'Pack of 32 perforated rolling tips. Just fill, pack, twist, and enjoy. No skill required.',
     image: '/images/eyeflip.png',
         overlayImage: '/images/tipstwo.png',
      imagePosition: '27% 70%',
@@ -36,11 +36,11 @@ const products = [
   },
   {
     id: 3,
-    name: 'King Size Slim',
+    name: 'Kingsize Slim',
     price: 111,
     category: 'papers',
      description: '32 Natural Papers',
-    Textdescription: 'Extra-long king size papers for when you want to take your time. Same smooth burn, more room to roll.',
+    Textdescription: 'Slow burning Kingsize papers for when you want to take your time. Same smooth burn, more room to roll.',
     image: '/images/eyenormal.png',
     overlayImage:  '/images/papertwo.png',
      imagePosition: '33% 70%',

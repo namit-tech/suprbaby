@@ -115,14 +115,15 @@ const Home = () => {
                     transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } 
                   }
                 }}
-                className="text-left text-secondary tracking-[0.1em] font-accent text-3xl sm:text-2xl mt-5 md:mb-[3vh]"
+                className="text-left text-secondary tracking-[0.1em] font-accent text-3xl sm:text-2xl mt-12 md:mt-[8vh] md:mb-[3vh]"
               >
-                Burns Like Desire <br /> Flows like Dream...
+                Burns Like Desire <br /> 
+                <span className="block font-accent text-right">Flows Like Dream</span>
               </motion.p>
             </motion.div>
 
           {/* Circular Badge - Moved to Top Right (Mobile) */}
-          <div className="lg:hidden absolute top-[10svh] right-4 z-30 pointer-events-none">
+          <div className="lg:hidden absolute top-[10svh] right-12 z-30 pointer-events-none">
              <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -156,7 +157,7 @@ const Home = () => {
           </div>
         </div>
 
-          <div className="px-5 lg:px-0">
+          <div className="lg:px-0">
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -166,13 +167,13 @@ const Home = () => {
             >
               <Link
                 to="/shop"
-                className="w-full uppercase bg-secondary text-primary font-secondary font-bold text-lg sm:text-base px-2 sm:px-8 py-[1.3svh] sm:py-4 rounded-xl transition-all duration-1200 ease-premium hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[40px] sm:min-h-[44px] flex items-center justify-center gap-1 sm:gap-2 whitespace-nowrap"
+                className="w-full bg-secondary text-primary font-primary font-bold text-lg sm:text-base px-2 sm:px-8 py-[1.3svh] sm:py-4 transition-all duration-1200 ease-premium hover:bg-primary hover:text-secondary border-2 border-secondary min-h-[40px] sm:min-h-[44px] flex items-center justify-center gap-1 sm:gap-2 whitespace-nowrap"
               >
                 Experience
               </Link>
               <Link
                 to="/about"
-                className="w-full uppercase border-2 border-secondary font-secondary text-secondary font-bold text-lg sm:text-base px-2 sm:px-8 py-[1.3svh] sm:py-4 rounded-xl transition-all duration-1200 ease-premium hover:bg-secondary hover:text-primary min-h-[40px] sm:min-h-[44px] flex items-center justify-center text-center whitespace-nowrap gap-2"
+                className="w-full border-2 border-secondary font-primary text-secondary font-bold text-lg sm:text-base px-2 sm:px-8 py-[1.3svh] sm:py-4 transition-all duration-1200 ease-premium hover:bg-secondary hover:text-primary min-h-[40px] sm:min-h-[44px] flex items-center justify-center text-center whitespace-nowrap gap-2"
               >
               <FaHeart />  Our Story 
               </Link>
@@ -344,12 +345,14 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, i) => (
               <ScrollReveal key={value.title} delay={i * 0.15}>
-                <div className="border-2 border-primary rounded-2xl p-8 text-center transition-all duration-1200 ease-premium hover:bg-primary hover:text-secondary group">
-                  <value.icon className="text-primary text-4xl mx-auto mb-5 transition-all duration-1200 ease-premium group-hover:text-secondary" />
-                  <h3 className="text-primary text-xl font-bold mb-3 transition-all duration-1200 ease-premium group-hover:text-secondary">
-                    {value.title}
-                  </h3>
-                  <p className="text-primary opacity-80 text-base leading-relaxed transition-all duration-1200 ease-premium group-hover:text-secondary group-hover:opacity-80">
+                <div className="border-2 border-primary rounded-2xl p-8 text-center transition-all duration-1200 ease-premium hover:bg-primary hover:text-secondary group h-full">
+                  <div className="flex items-center justify-center gap-4 mb-5">
+                    <value.icon className="text-primary text-4xl transition-all duration-1200 ease-premium group-hover:text-secondary shrink-0" />
+                    <h3 className="text-primary text-2xl font-bold transition-all duration-1200 ease-premium group-hover:text-secondary">
+                      {value.title}
+                    </h3>
+                  </div>
+                  <p className="text-primary opacity-80 text-base leading-relaxed transition-all duration-1200 ease-premium group-hover:text-secondary group-hover:opacity-80 text-justify">
                     {value.desc}
                   </p>
                 </div>
