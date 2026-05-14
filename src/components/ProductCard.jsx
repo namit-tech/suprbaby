@@ -5,7 +5,7 @@ const ProductCard = ({ product }) => {
   const { addItem } = useCart();
 
   return (
-    <div className="group relative overflow-hidden border-2 border-primary transition-all duration-700 ease-in-out hover:shadow-2xl hover:-translate-y-1 flex flex-col aspect-[3/4] sm:aspect-auto sm:min-h-[480px] bg-[radial-gradient(circle_at_center,_#b85e43_0%,_#050505_100%)]">
+    <div className="group relative overflow-hidden transition-all duration-700 ease-in-out hover:shadow-2xl hover:-translate-y-1 flex flex-col aspect-[3/4] sm:aspect-auto sm:min-h-[480px] bg-[radial-gradient(circle_at_center,_#b85e43_0%,_#050505_100%)]">
       
       {/* Centered Overlay Product Image - Wrapped in Link for better clickability */}
       {product.overlayImage && (
