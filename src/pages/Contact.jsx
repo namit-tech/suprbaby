@@ -39,7 +39,7 @@ const Contact = () => {
     {
       icon: HiLocationMarker,
       label: 'Location',
-      value: 'Ashok Vihar, New Delhi, India',
+      value: 'E-111 Phase 1, Ashok Vihar Delhi 110052, India',
       href: 'https://maps.google.com/?q=Ashok+Vihar+New+Delhi+India'
     },
   ];
