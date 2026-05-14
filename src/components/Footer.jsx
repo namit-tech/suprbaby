@@ -52,9 +52,24 @@ const Footer = () => {
               alt="Suprbaby" 
               className="h-10 mb-4 transition-all duration-700 ease-in-out hover:opacity-80" 
             />
-            <p className="text-secondary opacity-80 text-base leading-relaxed">
+            <p className="text-secondary opacity-80 text-base leading-relaxed mb-6">
               Slow & smooth. Premium rolling papers crafted for those who love rolling like we do.
             </p>
+            <div className="hidden md:flex gap-4">
+              {[
+                { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/rollingpapers_suprbaby?igsh=ejQyOHNraXUyMTht' },
+                { icon: FaYoutube, label: 'YouTube', href: 'https://youtube.com/@rollingpapers_suprbaby?si=rC1G74eMFkTPeGnK' },
+              ].map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="text-secondary border-2 border-secondary rounded-xl p-3 min-h-[44px] min-w-[44px] flex items-center justify-center transition-all duration-700 ease-in-out hover:bg-secondary hover:text-primary"
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -94,27 +109,38 @@ const Footer = () => {
             ))}
           </CollapsibleSection>
 
-          {/* Socials */}
-          <CollapsibleSection title="Connect">
-            <div className="flex gap-4 mb-4">
-              {[
-                { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/rollingpapers_suprbaby?igsh=ejQyOHNraXUyMTht' },
-                { icon: FaYoutube, label: 'YouTube', href: 'https://youtube.com/@rollingpapers_suprbaby?si=rC1G74eMFkTPeGnK' },
-              ].map(({ icon: Icon, label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="text-secondary border-2 border-secondary rounded-xl p-3 min-h-[44px] min-w-[44px] flex items-center justify-center transition-all duration-700 ease-in-out hover:bg-secondary hover:text-primary"
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
-            </div>
-            <p className="text-secondary opacity-70 text-sm">
+          {/* Contact */}
+          <CollapsibleSection title="Contact Us">
+            <p className="text-secondary opacity-70 text-base min-h-[40px] md:min-h-[44px] flex items-center">
+              Brand: Suprbaby
+            </p>
+            <p className="text-secondary opacity-70 text-base min-h-[40px] md:min-h-[44px] flex items-center">
+              Legal: Aces Rolling Papers
+            </p>
+            <p className="text-secondary opacity-70 text-base min-h-[40px] md:min-h-[44px] flex items-center leading-relaxed">
+              E-111 Phase 1, Ashok Vihar Delhi 110052
+            </p>
+            <p className="text-secondary opacity-70 text-base min-h-[40px] md:min-h-[44px] flex items-center">
               store@suprbaby.in
             </p>
           </CollapsibleSection>
+        </div>
+
+        {/* Mobile Socials - Separate Entity */}
+        <div className="md:hidden flex justify-center gap-6 mb-12">
+          {[
+            { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/rollingpapers_suprbaby?igsh=ejQyOHNraXUyMTht' },
+            { icon: FaYoutube, label: 'YouTube', href: 'https://youtube.com/@rollingpapers_suprbaby?si=rC1G74eMFkTPeGnK' },
+          ].map(({ icon: Icon, label, href }) => (
+            <a
+              key={label}
+              href={href}
+              aria-label={label}
+              className="text-secondary border-2 border-secondary rounded-xl p-3 min-h-[48px] min-w-[48px] flex items-center justify-center transition-all duration-700 ease-in-out hover:bg-secondary hover:text-primary"
+            >
+              <Icon size={24} />
+            </a>
+          ))}
         </div>
 
         {/* Divider */}
@@ -123,7 +149,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-secondary opacity-60 text-sm">
-            © {new Date().getFullYear()} Aces Rolling Papers. All rights reserved.
+            © {new Date().getFullYear()} Aces Rolling Papers (Brand: Suprbaby). All rights reserved.
           </p>
           <p className="text-secondary opacity-60 text-sm">
             www.suprbaby.in

@@ -57,7 +57,7 @@ const Home = () => {
   return (
     <div>
       {/* ===== HERO SECTION ===== */}
-      <section className="bg-primary h-[100svh] w-full flex flex-col justify-center px-5 pt-[14svh] pb-[4svh] sm:pt-24 sm:pb-8 lg:pt-[8vh] relative overflow-hidden">
+      <section className="bg-primary h-[100svh] w-full flex flex-col justify-center px-5 pt-[14svh] pb-[4svh] sm:pt-24 sm:pb-8 lg:pt-[18vh] relative overflow-hidden">
         
         {/* Background Ghost Watermark (Desktop Only) */}
         <div className="hidden lg:flex absolute inset-0 items-center justify-center pointer-events-none select-none z-0">
@@ -67,9 +67,9 @@ const Home = () => {
             className="w-[80%] max-w-[900px] object-contain opacity-[0.08]"
           />
         </div>
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-end flex-1">
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-1 gap-6 lg:gap-10 items-end flex-1">
           {/* Text */}
-          <div className="flex flex-col h-full lg:text-left">
+          <div className="flex flex-col h-full lg:items-start lg:text-left">
             <motion.div 
               initial="hidden"
               animate="visible"
@@ -86,7 +86,7 @@ const Home = () => {
               className="flex-1 flex flex-col justify-end"
             >
               <h1
-                className="text-left text-secondary font-primary text-[clamp(2.7rem,10.8svh,4rem)] sm:text-[4rem] md:text-[6vh] lg:text-[8.5vh] xl:text-[10vh] font-black leading-[1] mb-4"
+                className="text-left text-secondary font-primary text-[clamp(2.7rem,10.8svh,4rem)] sm:text-[4rem] md:text-[6vh] lg:text-[7.5vh] xl:text-[9vh] font-black leading-[1] mb-4"
               >
                 {['Finest','Rolling', 'Papers', '& Tips'].map((word, i) => (
                   <motion.span
@@ -122,7 +122,6 @@ const Home = () => {
               </motion.p>
             </motion.div>
 
-          {/* Circular Badge - Moved to Top Right (Mobile) */}
           <div className="lg:hidden absolute top-[10svh] right-12 z-30 pointer-events-none">
              <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -155,6 +154,40 @@ const Home = () => {
                 </div>
               </motion.div>
           </div>
+
+          {/* Dedicated Laptop Badge */}
+          <div className="hidden lg:block absolute top-[18vh] right-[15%] z-30 pointer-events-none">
+             <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.5, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="relative flex items-center justify-center w-[180px] h-[180px]"
+              >
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  className="w-full h-full"
+                >
+                  <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-md">
+                    <path
+                      id="desktopBadgePath"
+                      d="M 100, 100 m -82, 0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0"
+                      fill="transparent"
+                    />
+                    <text className="text-[24px] font-bold font-secondary tracking-[0.2em] uppercase fill-secondary/90" dominantBaseline="middle">
+                      <textPath href="#desktopBadgePath" startOffset="0%" textLength="510" lengthAdjust="spacing">
+                         WITH LOVE FROM SPAIN TO INDIA •   
+                      </textPath>
+                    </text>
+                  </svg>
+                </motion.div>
+                
+                {/* Center Icon */}
+                <div className="absolute text-secondary text-[25%] drop-shadow-sm">
+                  <FaHeart className="w-14 h-14" />
+                </div>
+              </motion.div>
+          </div>
         </div>
 
           <div className="lg:px-0">
@@ -163,7 +196,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col gap-[2svh] sm:gap-4 justify-start items-center w-[100%] sm:w-[75%] md:w-[65%] lg:w-full lg:max-w-md mx-auto lg:mx-0 mt-auto"
+              className="flex flex-col gap-[2svh] sm:gap-4 justify-start items-center w-[100%] sm:w-[75%] md:w-[65%] lg:w-full lg:max-w-md mx-auto mt-auto"
             >
               <Link
                 to="/shop"
@@ -181,7 +214,7 @@ const Home = () => {
           </div>
 
           {/* ===== Hero Abstract Visual (Desktop Only) ===== */}
-          <div className="hidden lg:flex items-start justify-end relative w-full h-full pt-[5vh]">
+          <div className="hidden items-start justify-end relative w-full h-full pt-[5vh]">
             
             {/* Soft Ambient Aurora/Bloom */}
             <motion.div 
