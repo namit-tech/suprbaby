@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
@@ -18,6 +18,7 @@ import ShippingPolicy from './components/ShippingPolicy';
 import RefundPolicy from './components/RefundPolicy';
 import PrivacyPolicy from './components/Privacypolicy';
 import Checkout from './pages/Checkout';
+import AgeGate from './components/AgeGate';
 
 // Scroll to top on page change
 const ScrollToTop = () => {
@@ -43,6 +44,20 @@ const PageTransition = ({ children }) => (
 function App() {
   const location = useLocation();
   const isAdminPage = location.pathname.startsWith('/admin');
+
+  // Age verification state
+  const [ageVerified, setAgeVerified] = useState(() => {
+    return localStorage.getItem('suprbaby_age_verified') === 'true';
+  });
+
+  const handleAgeVerified = () => {
+    setAgeVerified(true);
+  };
+
+  // If not verified & not admin page, show the age gate
+  if (!ageVerified && !isAdminPage) {
+    return <AgeGate onVerified={handleAgeVerified} />;
+  }
 
   return (
     <div className="font-primary">
@@ -161,3 +176,4 @@ function App() {
 }
 
 export default App;
+
