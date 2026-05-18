@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { HiArrowRight, HiStar, HiSparkles } from 'react-icons/hi';
 import { FaCannabis, FaHeart } from 'react-icons/fa';
 import { FaFire, FaInfinity } from 'react-icons/fa6';
@@ -7,13 +8,12 @@ import { TbCut, TbNumber0, TbSpiral, TbZzz } from 'react-icons/tb';
 import ScrollReveal from '../components/ScrollReveal';
 import ProductCard from '../components/ProductCard';
 import products from '../data/products';
-import creamComboImg from '../../public/images/weloverolling.png';
-import productBoxImg from '../../assets/Untitled design (9).png';
-import logoBgWhite from '../../assets/logobgwhite.png';
-
+import creamComboImg from '../../public/images/weloverolling.webp';
+import logoBgWhite from '../../public/images/logobgwhite.webp';
 
 const Home = () => {
   const featuredProducts = products.slice(0, 3);
+
 
   const reviews = [
     {
@@ -56,6 +56,13 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Suprbaby — Slow & Smooth | Premium Rolling Papers</title>
+        <meta name="description" content="Suprbaby — Premium rolling papers crafted for those who take it slow & smooth. Do what you love." />
+        <meta property="og:title" content="Suprbaby — Slow & Smooth" />
+        <meta property="og:description" content="Premium rolling papers crafted for those who take it slow & smooth. Do what you love." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* ===== HERO SECTION ===== */}
       <section className="bg-primary h-[100svh] w-full flex flex-col justify-center px-5 pt-[14svh] pb-[4svh] sm:pt-24 sm:pb-8 lg:pt-[18vh] relative overflow-hidden">
         

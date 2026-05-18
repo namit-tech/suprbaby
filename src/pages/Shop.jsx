@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import ScrollReveal from '../components/ScrollReveal';
 import ProductCard from '../components/ProductCard';
 import products, { categories } from '../data/products';
@@ -14,6 +15,12 @@ const Shop = () => {
 
   return (
     <div className="bg-secondary min-h-screen pt-28 pb-20 px-5">
+      <Helmet>
+        <title>Shop Premium Rolling Papers | Suprbaby</title>
+        <meta name="description" content="Browse our collection of slow-burning, unbleached rolling papers and perfectly structured tips. Everything you need for a smooth session." />
+        <meta property="og:title" content="Shop Premium Rolling Papers | Suprbaby" />
+        <meta property="og:description" content="Browse our collection of slow-burning, unbleached rolling papers and perfectly structured tips. Everything you need for a smooth session." />
+      </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <ScrollReveal>

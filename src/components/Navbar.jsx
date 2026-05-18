@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HiMenuAlt3, HiX, HiOutlineShoppingBag } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';
-import logoBg from '../../assets/suprbabycream.png';
+import logoBg from '../../public/images/suprbabycream.webp';
 import { useCart } from '../context/CartContext';
 
 const navLinks = [
