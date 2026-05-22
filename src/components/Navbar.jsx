@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { HiMenuAlt3, HiX, HiOutlineShoppingBag } from 'react-icons/hi';
+import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';
 import logoBg from '../../public/images/suprbabycream.webp';
-import { useCart } from '../context/CartContext';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -16,7 +15,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { totalItems, openDrawer } = useCart();
+
 
   useEffect(() => {
     setIsOpen(false);
@@ -69,23 +68,7 @@ const Navbar = () => {
               )}
             </Link>
           ))}
-          {/* Cart Icon */}
-          <button
-            onClick={openDrawer}
-            className="relative text-secondary p-2 min-h-[44px] min-w-[44px] flex items-center justify-center transition-all duration-700 ease-in-out hover:opacity-80"
-            aria-label="Open cart"
-          >
-            <HiOutlineShoppingBag size={22} />
-            {totalItems > 0 && (
-              <motion.span
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                className="absolute -top-0.5 -right-0.5 bg-secondary text-primary text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-md"
-              >
-                {totalItems}
-              </motion.span>
-            )}
-          </button>
+
 
           <Link
             to="/shop"
@@ -97,23 +80,6 @@ const Navbar = () => {
 
         {/* Mobile Right Actions */}
         <div className="md:hidden flex items-center gap-1">
-          {/* Mobile Cart Icon */}
-          <button
-            onClick={openDrawer}
-            className="relative text-secondary p-2 min-h-[44px] min-w-[44px] flex items-center justify-center transition-all duration-700 ease-in-out"
-            aria-label="Open cart"
-          >
-            <HiOutlineShoppingBag size={24} />
-            {totalItems > 0 && (
-              <motion.span
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                className="absolute -top-0.5 -right-0.5 bg-secondary text-primary text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-md"
-              >
-                {totalItems}
-              </motion.span>
-            )}
-          </button>
 
           {/* Mobile Hamburger */}
           <button

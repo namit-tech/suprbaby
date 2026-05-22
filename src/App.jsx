@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import CartDrawer from './components/CartDrawer';
+
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Product from './pages/Product';
@@ -17,7 +17,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import ShippingPolicy from './components/ShippingPolicy';
 import RefundPolicy from './components/RefundPolicy';
 import PrivacyPolicy from './components/Privacypolicy';
-import Checkout from './pages/Checkout';
+
 import AgeGate from './components/AgeGate';
 
 // Scroll to top on page change
@@ -63,7 +63,7 @@ function App() {
     <div className="font-primary">
       <ScrollToTop />
       {!isAdminPage && <Navbar />}
-      {!isAdminPage && <CartDrawer />}
+
       <main>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
@@ -159,14 +159,7 @@ function App() {
                 </PageTransition>
               }
             />
-            <Route
-              path="/checkout"
-              element={
-                <PageTransition>
-                  <Checkout />
-                </PageTransition>
-              }
-            />
+
           </Routes>
         </AnimatePresence>
       </main>
