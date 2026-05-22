@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
+import { HiOutlineExternalLink } from 'react-icons/hi';
 
 const ProductCard = ({ product }) => {
-  const { addItem } = useCart();
 
   return (
     <div className="group relative overflow-hidden transition-all duration-700 ease-in-out hover:shadow-2xl hover:-translate-y-1 flex flex-col aspect-[3/4] sm:aspect-auto sm:min-h-[480px] bg-[radial-gradient(circle_at_center,_#b85e43_0%,_#050505_100%)]">
@@ -42,15 +41,14 @@ const ProductCard = ({ product }) => {
             <span className="font-secondary text-secondary font-extrabold text-2xl md:text-2xl leading-none">
               ₹{product.price}
             </span>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                addItem(product);
-              }}
-              className="text-secondary font-bold text-base px-4 py-2 transition-all duration-700 ease-premium hover:bg-secondary hover:text-primary border-2 border-secondary flex items-center hover:scale-95 whitespace-nowrap"
+            <a
+              href={`https://acesrollingpapers.com/description/${product.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary font-bold text-sm px-4 py-2 transition-all duration-700 ease-premium hover:bg-secondary hover:text-primary border-2 border-secondary flex items-center gap-1.5 hover:scale-95 whitespace-nowrap"
             >
-              Add to Cart
-            </button>
+              Shop Now
+            </a>
           </div>
         </div>
       </div>
