@@ -66,7 +66,7 @@ const Product = () => {
           <div 
             ref={scrollRef}
             onScroll={handleScroll}
-            className="relative z-20 w-full h-full flex items-center overflow-x-auto snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing"
+            className="relative z-20 w-full h-full flex items-center overflow-x-auto overflow-y-hidden snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing"
           >
             {images.map((slide, index) => {
               const overlayImg = typeof slide === 'object' ? slide.overlay : null;
@@ -77,6 +77,7 @@ const Product = () => {
                   {overlayImg && (
                     <div className="absolute inset-0 flex items-center justify-center p-4">
                       <motion.img
+                        draggable={false}
                         initial={{ opacity: 0, scale: (slide.scale || 1) * 0.8, y: 20 }}
                         whileInView={{ opacity: 1, scale: slide.scale || 1, y: 0 }}
                         viewport={{ once: true, amount: 0.05 }}

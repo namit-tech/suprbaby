@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView, animate } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { HiArrowRight } from 'react-icons/hi';
 import ScrollReveal from '../components/ScrollReveal';
 
@@ -35,6 +36,12 @@ const About = () => {
 
   return (
     <div className="overflow-x-hidden">
+      <Helmet>
+        <title>Our Story | Suprbaby</title>
+        <meta name="description" content="Born from a love of doing things right. Discover the story behind Suprbaby and our philosophy of slow, smooth, and sustainable rolling papers." />
+        <meta property="og:title" content="Our Story | Suprbaby" />
+        <meta property="og:description" content="Born from a love of doing things right. Discover the story behind Suprbaby and our philosophy of slow, smooth, and sustainable rolling papers." />
+      </Helmet>
       {/* ===== HERO — PRIMARY BG ===== */}
       <section className="bg-primary min-h-[70svh] flex items-center pt-28 pb-12 px-5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">

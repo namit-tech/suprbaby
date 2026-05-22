@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaInstagram, FaYoutube } from 'react-icons/fa';
 import { HiPlus, HiMinus } from 'react-icons/hi';
-import logoBg from '../../assets/Suprbabycream.png';
+import logoBg from '../../public/images/Suprbabycream.webp';
 
 const CollapsibleSection = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
